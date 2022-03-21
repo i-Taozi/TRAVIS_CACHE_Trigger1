@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+
+    Copyright (c) 2006-2020, Speedment, Inc. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0 (the "License"); You may not
+    use this file except in compliance with the License. You may obtain a copy of
+    the License at:
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and limitations under
+    the License.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.speedment.runtime</groupId>
+        <artifactId>runtime-parent</artifactId>
+        <version>3.2.10</version>
+    </parent>
+
+    <artifactId>runtime-application</artifactId>
+
+    <properties>
+        <module-name>com.speedment.runtime.application</module-name>
+    </properties>
+
+    <name>Speedment - Runtime - Application</name>
+    <description>
+        The runtime bundle of Speedment that all projects must depend on to use 
+        the framework.
+    </description>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <!--Fix peculiar error-->
+<!--                    <source>8</source>-->
+                    <failOnError>false</failOnError>
+                    <docfilessubdirs>true</docfilessubdirs>
+                    <sourceFileIncludes>
+                        <sourceFileInclude>**/*.java</sourceFileInclude>
+                    </sourceFileIncludes>
+<!--                    <includeDependencySources>true</includeDependencySources>-->
+<!--                    <additionalOptions combine.self="override"/>-->
+
+<!--                    <additionalOptions>
+                        <option>&#45;&#45;add-modules</option>
+                        <option>${module-name}</option>
+                        <option>&#45;&#45;add-reads</option>
+                        <option>com.speedment.runtime.join=${module-name}</option>
+                        <option>&#45;&#45;add-reads</option>
+                        <option>com.speedment.runtime.connector.mariadb=${module-name}</option>
+                        <option>&#45;&#45;add-reads</option>
+                        <option>com.speedment.runtime.connector.mysql=${module-name}</option>
+                        <option>&#45;&#45;add-reads</option>
+                        <option>com.speedment.runtime.connector.postgres=${module-name}</option>
+                        <option>&#45;&#45;add-reads</option>
+                        <option>com.speedment.runtime.connector.sqlite=${module-name}</option>
+                    </additionalOptions>
+                    <keywords>true</keywords>
+                    <excludePackageNames>*.internal:*.internal.*:com.speedment.runtime.connector.*</excludePackageNames>
+                    <additionalJOptions>
+                        <additionalJOption>-J-Xmx1g</additionalJOption>
+                    </additionalJOptions>-->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.speedment.runtime</groupId>
+            <artifactId>runtime-core</artifactId>
+            <version>${speedment.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.speedment.common</groupId>
+            <artifactId>jvm-version</artifactId>
+        </dependency>
+                                                                
+        <dependency>
+            <groupId>com.speedment.runtime</groupId>
+            <artifactId>runtime-join</artifactId>
+            <version>${speedment.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.speedment.runtime</groupId>
+            <artifactId>connector-mysql</artifactId>
+            <version>${speedment.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.speedment.runtime</groupId>
+            <artifactId>connector-mariadb</artifactId>
+            <version>${speedment.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.speedment.runtime</groupId>
+            <artifactId>connector-postgres</artifactId>
+            <version>${speedment.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.speedment.runtime</groupId>
+            <artifactId>connector-sqlite</artifactId>
+            <version>${speedment.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.speedment.runtime</groupId>
+            <artifactId>runtime-welcome</artifactId>
+            <version>${speedment.version}</version>
+        </dependency>
+
+        <!--Test Dependencies-->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+        </dependency>
+
+    </dependencies>
+</project>

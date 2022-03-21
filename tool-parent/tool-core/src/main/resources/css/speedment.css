@@ -1,0 +1,744 @@
+/**
+ *
+ * Copyright (c) 2006-2019, Speedment, Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); You may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at:
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+/*** Load Custom Fonts ***/
+@font-face { src: url("../fonts/fontawesome-webfont.ttf"); }
+@font-face { src: url("../fonts/MaterialIcons-Regular.ttf"); }
+
+@font-face { src: url("../fonts/Roboto-Bold.ttf"); }
+@font-face { src: url("../fonts/Roboto-BoldItalic.ttf"); }
+@font-face { src: url("../fonts/Roboto-Medium.ttf"); }
+@font-face { src: url("../fonts/Roboto-MediumItalic.ttf"); }
+@font-face { src: url("../fonts/Roboto-Regular.ttf"); }
+@font-face { src: url("../fonts/Roboto-RegularItalic.ttf"); }
+
+/*** Constants ***/
+* {
+    /*Gray*/
+    -fx-speedment-darkgray:      #2D3639;
+    -fx-speedment-gray:          #4B595F;
+    -fx-speedment-mediumgray:    #808F95;
+    -fx-speedment-lightgray:     #CDD5DC;
+
+    /*Blue*/
+    -fx-speedment-blackblue:     #1B3747;
+    -fx-speedment-darkblue:      #155d89;
+    -fx-speedment-blue:          #2171ad;
+    -fx-speedment-mediumblue:    #5a98c8;
+    -fx-speedment-lightblue:     #cce7ff;
+
+    /*Green*/
+    -fx-speedment-darkgreen:     #3a9b79;
+    -fx-speedment-green:         #5abf95;
+    -fx-speedment-mediumgreen:   #33b88a;
+    -fx-speedment-lightgreen:    #9be9ce;
+
+    /*Yellow*/
+    -fx-speedment-darkyellow:    #ffcf38;
+    -fx-speedment-yellow:        #ffda64;
+    -fx-speedment-mediumyellow:  #fce390;
+    -fx-speedment-lightyellow:   #fff2c8;
+
+    /*Red*/
+    -fx-speedment-darkred:       #bf4545;
+    -fx-speedment-red:           #d66969;
+    -fx-speedment-mediumred:     #f27f7c;
+    -fx-speedment-lightred:      #f2b3b3;
+
+    -fx-focus-color: -fx-speedment-blue;
+    -fx-accent:      -fx-speedment-blue;
+
+}
+
+.root {
+    -font-font-family: 'Roboto';
+}
+
+/*** Titles Pane ***/
+.titled-pane {
+    -fx-background-color: -fx-speedment-lightgray;
+    -fx-text-fill: black;
+    -fx-border-color: -fx-speedment-mediumgray;
+    -fx-border-top: 1px;
+    -fx-border-bottom: 1px;
+}
+
+.titled-pane > .title {
+    -fx-background-color: -fx-speedment-lightgray;
+    -fx-background-radius: 0px;
+    -fx-font-size: 1.1em;
+    -fx-font-weight: normal;
+}
+
+/*** Border Panes ***/
+.border-pane {
+    -fx-border-width: 0px;
+}
+
+/*** Tree View ***/
+.tree-view {
+
+    -fx-font-size: 1em;
+    -fx-font-weight: normal;
+    /*-fx-background-color: -fx-speedment-gray;*/
+    -fx-text-fill: -fx-speedment-lightgray;
+}
+
+.tree-view .tree-cell:selected {
+    -fx-background-color: -fx-speedment-blue;
+    -fx-background-radius: 0px;
+    -fx-border-width: 0px;
+    -fx-text-fill: white;
+}
+
+.tree-view .tree-cell .arrow  {
+    -fx-background-color: black;
+}
+
+.tree-view .tree-cell:selected .arrow {
+    -fx-background-color: white;
+}
+
+.tree-view .gui-disabled,
+.tree-view .gui-disabled .tree-cell {
+    -fx-text-fill: -fx-speedment-lightgray;
+}
+
+.tree-view .track-background {
+    -fx-background-color: white;
+}
+
+/*** Label ***/
+.label {
+    -fx-font-size: 1em;
+    -fx-font-weight: normal;
+    -fx-text-fill: -fx-speedment-darkgray;
+}
+
+.form-label {
+    -fx-font-family: 'Roboto';
+    -fx-font-size: 1em;
+    -fx-font-weight: normal;
+    -fx-text-alignment: right;
+}
+
+/*** Headers ***/
+.header {
+    -fx-font-weight: normal;
+    -fx-font-size: 2em;
+    -fx-text-fill: -fx-speedment-darkgray;
+}
+
+.header-pane {
+    -fx-font-weight: normal;
+    -fx-font-size: 1.7em;
+    -fx-font-family:"Titillium Web";
+    -fx-background-color: -fx-speedment-lightgray;
+    -fx-text-fill: -fx-speedment-darkgray;
+}
+
+/*** Text Fields and Areas ***/
+.text-field,
+.text-area {
+    -fx-background-color: white;
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+    -fx-border-radius: 2px;
+    -fx-border-color: -fx-speedment-mediumgray;
+    -fx-text-fill: -fx-speedment-darkgray;
+    -fx-font-size: 1em;
+    -fx-font-weight: normal;
+}
+
+.text-field:focused,
+.text-field:hover,
+.text-area:focused,
+.text-area:hover {
+    -fx-border-color: -fx-speedment-blue;
+}
+
+/*** List Views ***/
+.list-view {
+    -fx-background-color: white;
+    /*   -fx-border-width: 2px;
+       -fx-border-style: solid;
+       -fx-border-color: -fx-speedment-darkgray; */
+    -fx-font-size: 1em;
+    -fx-font-weight: normal;
+}
+
+.list-view:focused,
+.list-view:hover,
+.list-view:focused,
+.list-view:hover {
+    -fx-border-color: -fx-speedment-darkblue;
+}
+
+/*** Buttons ***/
+.button {
+    -fx-background-color: -fx-speedment-blackblue;
+    -fx-background-radius: 30px;
+    -fx-border-width: 0px;
+    -fx-text-fill: white;
+    -fx-font-weight: normal;
+    -fx-font-size: 1.0em;
+    -fx-cursor: hand;
+    -fx-graphic-text-gap: 0.7em;
+}
+
+.button:hover {
+    -fx-background-color: -fx-speedment-darkblue;
+}
+
+.button .glyph-icon {
+    -fx-fill: white;
+    -fx-text-fill: white;
+    -fx-font-size: 1.5em;
+}
+
+.special {
+    -fx-background-color: -fx-speedment-yellow;
+}
+
+/*** Choice Box ***/
+.choice-box,
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+    -fx-border-color: -fx-speedment-mediumgray;
+    -fx-border-radius: 2px;
+    -fx-font-size: 1em;
+    -fx-font-weight: normal;
+}
+
+.choice-box:focused,
+.choice-box:hover,
+.combo-box:focused,
+.combo-box:hover {
+    -fx-border-color: -fx-speedment-darkblue;
+}
+
+.combo-box .list-cell:hover {
+    -fx-background-color: -fx-speedment-darkblue;
+    -fx-text-fill: white;
+}
+
+/*** Tooltips ***/
+.tooltip {
+    -fx-background-radius: 0px;
+    -fx-background-color: white;
+    /*  -fx-border-width: 2px;
+      -fx-border-style: solid;
+      -fx-border-color: -fx-speedment-darkgray; */
+    -fx-text-fill: black;
+    -fx-font-size: 1em;
+    -fx-font-weight: normal;
+}
+
+/*** Toolbars ***/
+.tool-bar {
+    -fx-background-color: -fx-speedment-lightgray;
+}
+
+/*** Checkboxes ***/
+
+.check-box *.box {
+    -fx-background-color: white;
+    -fx-border-radius: 3px;
+    -fx-border-color: -fx-speedment-gray;
+    -fx-border-width: 1px;
+    -fx-pref-width: 16px;
+    -fx-pref-height: 16px;
+}
+
+.check-box *.box:hover,
+.check-box *.box:active {
+    -fx-background-color: white;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
+
+.check-box *.box:disabled {
+    -fx-background-color: white;
+    -fx-border-color: -fx-speedment-lightgray;
+}
+
+.check-box:disabled .mark {
+    -fx-background-color: -fx-speedment-darkgray;
+}
+
+.check-box:selected .box {
+    -fx-background-color: -fx-speedment-darkblue;
+}
+
+/*** Split Panes ***/
+.split-pane {
+    -fx-border-width: 0px;
+    -fx-background-color: transparent;
+}
+
+.split-pane-divider {
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.split-pane-divider:hover,
+.split-pane-divider:active {
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.split-pane > .split-pane-divider {
+    -fx-padding: 0;
+}
+
+/*** Menus ***/
+.menu-bar,
+.menu-bar .menu,
+.menu-bar .menu .menu-item {
+    -fx-background-color: white;
+}
+
+.menu-bar {
+    -fx-border-width: 0 0 0.5px 0;
+    -fx-border-color: -fx-speedment-darkgray;
+}
+
+.context-menu {
+    -fx-background-color: white;
+    -fx-background-radius: 0px;
+    /* -fx-border-width: 2px;
+     -fx-border-style: solid;
+     -fx-border-color: -fx-speedment-green;
+     -fx-text-fill: black; */
+    -fx-padding: 0px;
+    -fx-font-size: 1em;
+    -fx-font-weight: normal;
+    -fx-text-fill: white;
+}
+
+.menu-bar .menu:hover,
+.menu-bar .menu:active,
+.menu-bar .menu:focused,
+.menu-bar .menu:showing,
+.menu-bar .menu:hover > .label,
+.menu-bar .menu:active > .label,
+.menu-bar .menu:focused > .label,
+.menu-bar .menu:showing > .label,
+.menu-bar .menu .menu-item:hover,
+.menu-bar .menu .menu-item:active,
+.menu-bar .menu .menu-item:focused,
+.context-menu .menu-item:hover,
+.context-menu .menu-item:focused,
+.menu-bar .menu .menu-item:hover > .label,
+.menu-bar .menu .menu-item:active > .label,
+.menu-bar .menu .menu-item:focused > .label,
+.context-menu .menu-item:hover > .label,
+.context-menu .menu-item:focused > .label,
+.menu-bar .menu .menu-item:hover *,
+.menu-bar .menu .menu-item:active *,
+.menu-bar .menu .menu-item:focused *,
+.context-menu .menu-item:hover *,
+.context-menu .menu-item:focused * {
+    -fx-background-color: -fx-speedment-blue;
+    -fx-fill: white;
+    -fx-text-fill: white;
+    -fx-focus-color:white;
+}
+
+.menu-bar .menu:hover:show-mnemonics > .label > .mnemonic-underline,
+.menu-bar .menu:active:show-mnemonics > .label > .mnemonic-underline,
+.menu-bar .menu:focused:show-mnemonics > .label > .mnemonic-underline,
+.menu-bar .menu:showing:show-mnemonics > .label > .mnemonic-underline,
+.menu-bar .menu:show-mnemonics .menu-item:hover > .label > .mnemonic-underline,
+.menu-bar .menu:show-mnemonics .menu-item:active > .label > .mnemonic-underline,
+.menu-bar .menu:show-mnemonics .menu-item:focused > .label > .mnemonic-underline,
+.menu-bar .menu:show-mnemonics .menu-item:showing > .label > .mnemonic-underline {
+    -fx-stroke: white;
+}
+
+/*** Separators ***/
+.menu-bar .separator {
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-background-color: -fx-speedment-gray;
+}
+
+.menu-bar .separator .line {
+    -fx-border-width: 0.5px 0px 0px 0px;
+    -fx-border-style: solid;
+    -fx-border-color: -fx-speedment-gray;
+}
+
+.separator {
+    -fx-border-width: 1px;
+}
+
+/*** Toolbar buttons ***/
+#toolbar {
+    -fx-padding: 0.5em 1em 0.5em 1em;
+    -fx-spacing: 1em;
+}
+
+#toolbar .button {
+    -fx-padding: 0.8em 1.2em 0.8em 1.2em;
+}
+
+#toolbar .button:show-mnemonics .mnemonic-underline {
+    -fx-stroke: white;
+}
+
+/*** Dialog Panels ***/
+
+.header-panel > .label,
+.header-panel > .label > .text {
+    -fx-font-weight: normal;
+    -fx-font-size: 1.7em;
+    -fx-text-fill: -fx-speedment-darkgray;
+}
+
+.header-panel > .graphic-container .glyph-icon {
+    -fx-font-size: 1.7em;
+}
+
+.error .header-panel > .graphic-container .glyph-icon {
+    -fx-text-fill: -fx-speedment-red;
+    -fx-fill: -fx-speedment-red;
+}
+
+.warning .header-panel > .graphic-container .glyph-icon {
+    -fx-text-fill: -fx-speedment-yellow;
+    -fx-fill: -fx-speedment-yellow;
+}
+
+.confirmation .header-panel > .graphic-container .glyph-icon {
+    -fx-text-fill: -fx-speedment-yellow;
+    -fx-fill: -fx-speedment-yellow;
+}
+
+.info .header-panel > .graphic-container .glyph-icon {
+    -fx-text-fill: -fx-speedment-darkgreen;
+    -fx-fill: -fx-speedment-darkgreen;}
+
+.authentication .header-panel > .graphic-container .glyph-icon {
+    -fx-text-fill: -fx-speedment-darkgray;
+    -fx-fill: -fx-speedment-darkgray;}
+
+.progress .header-panel > .graphic-container .glyph-icon {
+    -fx-text-fill: -fx-speedment-darkgray;
+    -fx-fill: -fx-speedment-darkgray;}
+
+.progress-bar > .track {
+    -fx-text-box-border: lightgray;
+    -fx-control-inner-background: lightgray;
+}
+
+.progress-bar .bar {
+    -fx-padding: 3;
+    -fx-background-insets: 0;
+}
+
+.h2 {
+    -fx-font-size: 1.4em;
+}
+
+/*** Output messages ***/
+#output .tool-bar {
+    -fx-background-color: -fx-speedment-lightgray;
+}
+
+.label.msg {
+    -fx-font-size: 1.2em;
+    -fx-text-fill: black;
+    -fx-font-family: "Source Code Pro";
+}
+
+.label.msg.error {
+    -fx-text-fill: -fx-speedment-mediumred;
+}
+
+.label.msg.warning {
+    -fx-text-fill: -fx-speedment-yellow;
+}
+
+.label.msg.success {
+    -fx-text-fill: -fx-speedment-darkgreen;
+}
+
+/*** Notifications ***/
+.notification {
+    -fx-border-width: 0px 0px 0px 8px;
+    -fx-background-color: white;
+    -fx-padding: 16;
+}
+
+.notification .glyph-icon {
+    -fx-font-size: 2.0em;
+    -fx-padding: 0em 0.8em 0em 0em;
+}
+
+.notification.info {
+    -fx-border-color: -fx-speedment-mediumblue;
+}
+
+.notification.info .glyph-icon {
+    -fx-fill: -fx-speedment-mediumblue;
+    -fx-text-fill: -fx-speedment-mediumblue;
+}
+
+.notification.success {
+    -fx-border-color: -fx-speedment-darkgreen;
+}
+
+.notification.success .glyph-icon {
+    -fx-fill: -fx-speedment-darkgreen;
+    -fx-text-fill: -fx-speedment-darkgreen;
+}
+
+.notification.warning {
+    -fx-border-color: -fx-speedment-yellow;
+}
+
+.notification.warning .glyph-icon {
+    -fx-fill: -fx-speedment-yellow;
+    -fx-text-fill: -fx-speedment-yellow;
+}
+
+.notification.error {
+    -fx-border-color: -fx-speedment-mediumred;
+}
+
+.notification.error .glyph-icon {
+    -fx-fill: -fx-speedment-mediumred;
+    -fx-text-fill: -fx-speedment-mediumred;
+}
+
+.notification.confirmation {
+    -fx-border-color: -fx-speedment-yellow;
+}
+
+.notification.confirmation .glyph-icon {
+    -fx-fill: -fx-speedment-lightyellow;
+    -fx-text-fill: -fx-speedment-yellow;
+}
+
+.notification.authentication {
+    -fx-border-color: -fx-speedment-lightgray;
+}
+
+.notification.authentication .glyph-icon {
+    -fx-fill: -fx-speedment-lightgray;
+    -fx-text-fill: -fx-speedment-lightgray;
+}
+
+/*** Properties layout ***/
+.properties-layout {
+    -fx-hgap: 10px;
+    -fx-vgap: 10px;
+    -fx-padding: 15px 15px 15px 15px;
+}
+
+/*** Properties layout : left ***/
+.property-label {
+    -fx-font-size: 1em;
+    -fx-alignment: top-left;
+    -fx-padding: 5px 0px 5px 0px;
+    -fx-margin: 0 8px 0 0;
+}
+
+/*** Properties layout : right ***/
+.property-editor {
+    -fx-spacing: 10px;
+    -fx-fill-width: true;
+    -fx-alignment: center-left;
+    -fx-wrap-text: true;
+}
+
+/*** Issues ***/
+#issues .button {
+    -fx-padding: 6px 8px 6px 8px;
+}
+
+/*** FontAwesome Icons ***/
+.glyph-icon {
+    -fx-font-family: 'FontAwesome';
+}
+
+.material-icon {
+    -fx-font-family: 'Material Icons';
+}
+
+/*** Field Validation ***/
+.correct {
+    -fx-background-color: white;
+}
+
+.wrong {
+    -fx-border-color: -fx-speedment-mediumred;
+}
+
+.small {
+    -fx-font-size: 0.8em;
+}
+
+.btn-secondary {
+    -fx-background-color: -fx-speedment-blue;
+    -fx-text-fill: white;
+}
+
+.hyperlink {
+    -fx-font-size: 1em;
+    -fx-text-fill: -fx-speedment-mediumblue;
+}
+
+/* License table */
+.table-view {
+    -fx-background-color: -fx-speedment-gray;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: -fx-speedment-darkgray;
+}
+
+.table-view .column-header-background .label {
+    -fx-text-fill: -fx-speedment-lightgray;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .filler {
+    -fx-background-color: -fx-speedment-darkgray;
+}
+
+.table-view .table-cell{
+    -fx-text-fill: white;
+}
+
+.table-row-cell{
+    -fx-background-color: -fx-speedment-gray;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 */
+}
+
+.table-row-cell:odd{
+    -fx-background-color: -fx-speedment-mediumgray;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 */
+}
+
+.table-row-cell:selected {
+    -fx-background-color: -fx-speedment-mediumblue;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}
+
+
+/*** Scroll Bars ***/
+.scroll-bar,
+.tree-view .scroll-bar {
+    -fx-font-size: 8px;
+}
+
+.scroll-bar:horizontal,
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-border-width: 0px;
+    -fx-width: 1em;
+}
+
+.increment-button,
+.decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: -fx-speedment-lightgray;
+    -fx-border-width: 0px;
+}
+
+.tree-view .scroll-bar:horizontal,
+.tree-view .scroll-bar:vertical,
+.tree-view .scroll-bar:horizontal:hover,
+.tree-view .scroll-bar:vertical:hover,
+.tree-view .scroll-bar:horizontal:pressed,
+.tree-view .scroll-bar:vertical:pressed,
+.tree-view .scroll-bar:horizontal .track,
+.tree-view .scroll-bar:vertical .track,
+.tree-view .scroll-bar:horizontal .track-background,
+.tree-view .scroll-bar:vertical .track-background,
+.tree-view .track-background,
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-border-width: 0px;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: -fx-speedment-mediumgray;
+    -fx-background-insets: 0, 0, 0;
+    -fx-background-radius: 8px;
+    -fx-border-width: 0px;
+}
+
+.scroll-bar:horizontal:hover .track,
+.scroll-bar:horizontal:pressed .track,
+.scroll-bar:vertical:hover .track,
+.scroll-bar:vertical:pressed .track{
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb:hover,
+.scroll-bar .thumb:pressed {
+    -fx-background-color: -fx-speedment-gray;
+}
+
+/* Settings toolbar  */
+.toolbarBtn {
+    -fx-padding: 0px;
+    -fx-background-color: transparent;
+    -fx-border-width: 1px;
+    -fx-border-radius: 2px;
+    -fx-border-color: transparent;
+    -fx-background-radius: 2px;
+}
+
+.toolbarBtn .material-icon {
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-speedment-darkgray;
+    -fx-padding: 0 2px;
+}
+
+.toolbarBtn .glyph-icon {
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-speedment-darkgray;
+    -fx-padding: 1 4px;
+}
+
+.toolbarBtn:selected,
+.toolbarBtn:hover {
+    -fx-background-color: -fx-speedment-lightgray;
+    -fx-border-color: -fx-speedment-mediumgray;
+    -fx-border-width: 1px;
+    -fx-border-radius: 2px;
+    -fx-background-radius: 2px;
+}
+
