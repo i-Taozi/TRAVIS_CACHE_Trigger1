@@ -1,371 +1,416 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <!-- This module was also published with a richer model, Gradle metadata,  -->
+  <!-- which should be used instead. Do not delete the following line which  -->
+  <!-- is to indicate to Gradle or any Gradle module metadata file consumer  -->
+  <!-- that they should prefer consuming it instead. -->
+  <!-- do_not_remove: published-with-gradle-metadata -->
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.fasterxml.jackson</groupId>
+    <artifactId>jackson-base</artifactId>
+    <version>2.14.0-SNAPSHOT</version>
+  </parent>
+  <groupId>com.fasterxml.jackson.core</groupId>
+  <artifactId>jackson-databind</artifactId>
+  <version>2.14.0-SNAPSHOT</version>
+  <name>jackson-databind</name>
+  <packaging>bundle</packaging>
+  <description>General data-binding functionality for Jackson: works on core streaming API</description>
+  <url>http://github.com/FasterXML/jackson</url>
+  <inceptionYear>2008</inceptionYear>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  
+  <scm>
+    <connection>scm:git:git@github.com:FasterXML/jackson-databind.git</connection>
+    <developerConnection>scm:git:git@github.com:FasterXML/jackson-databind.git</developerConnection>
+    <url>http://github.com/FasterXML/jackson-databind</url>
+    <tag>HEAD</tag>
+  </scm>
 
-	<groupId>net.ess3</groupId>
-	<artifactId>EssentialsParent</artifactId>
-	<version>2.x-SNAPSHOT</version>
+  <properties>
+    <!-- Until Jackson 2.11 (inclusive) baseline was JDK 7 (except for annotations/streaming),
+         with 2.12 baseline became JDK8
+      -->
+    <javac.src.version>1.8</javac.src.version>
+    <javac.target.version>1.8</javac.target.version>
 
-	<packaging>pom</packaging>
+    <!-- Can not use default, since group id != Java package name here -->
+    <osgi.export>com.fasterxml.jackson.databind.*;version=${project.version}</osgi.export>
+    <!-- fix for databind#2299: using jackson-databind in an OSGi environment under Android --> 
+    <osgi.import>
+        org.w3c.dom.bootstrap;resolution:=optional,
+        *
+    </osgi.import>
 
-	<url>http://ess3.net/</url>
+    <!-- Generate PackageVersion.java into this directory. -->
+    <packageVersion.dir>com/fasterxml/jackson/databind/cfg</packageVersion.dir>
+    <packageVersion.package>com.fasterxml.jackson.databind.cfg</packageVersion.package>
 
-	<organization>
-		<name>Essentials Team</name>
-		<url>http://ess3.net/</url>
-	</organization>
+    <version.powermock>2.0.0</version.powermock>
+  </properties>
 
-	<licenses>
-		<license>
-			<name>GPLv3</name>
-			<url>http://www.gnu.org/copyleft/gpl.html</url>
-		</license>
-	</licenses>
+  <dependencies>
+    <!-- Builds on core streaming API; also needs core annotations -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <!-- 06-Mar-2017, tatu: Although bom provides for dependencies, some legacy
+             usage seems to benefit from actually specifying version here in case
+             it is dependent on transitively
+        -->
+      <version>${jackson.version.annotations}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>${jackson.version.core}</version>
+    </dependency>
 
-	<scm>
-		<connection>scm:git:https://github.com/essentials/Essentials.git</connection>
-		<developerConnection>scm:git:https://github.com/essentials/Essentials.git</developerConnection>
-		<url>https://github.com/essentials/Essentials</url>
-	</scm>
+    <!-- and for testing we need a few libraries
+         libs for which we use reflection for code, but direct dep for testing
+      -->
 
-	<issueManagement>
-		<system>JIRA</system>
-		<url>http://essentials3.atlassian.net</url>
-	</issueManagement>
+    <dependency>
+      <groupId>org.powermock</groupId>
+      <artifactId>powermock-core</artifactId>
+      <version>${version.powermock}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.powermock</groupId>
+      <artifactId>powermock-module-junit4</artifactId>
+      <version>${version.powermock}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.powermock</groupId>
+      <artifactId>powermock-api-mockito2</artifactId>
+      <version>${version.powermock}</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- For testing TestNoClassDefFoundDeserializer -->
+    <dependency>
+      <groupId>javax.measure</groupId>
+      <artifactId>jsr-275</artifactId>
+      <version>0.9.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 
-	<ciManagement>
-		<system>TeamCity</system>
-		<url>http://ci.ess3.net/</url>
-	</ciManagement>
+  <!-- Alas, need to include snapshot reference since otherwise can not find
+       snapshot of parent... -->
+  <repositories>
+    <repository>
+      <id>sonatype-nexus-snapshots</id>
+      <name>Sonatype Nexus Snapshots</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <releases><enabled>false</enabled></releases>
+      <snapshots><enabled>true</enabled></snapshots>
+    </repository>
+  </repositories>
 
-	<repositories>
-		<repository>
-			<id>ess-repo</id>
-			<url>http://repo.ess3.net/content/groups/public</url>
-		</repository>
-	</repositories>
+  <build>
+     <plugins>
 
-	<distributionManagement>
-		<snapshotRepository>
-			<id>essdev</id>
-			<url>http://repo.ess3.net/content/repositories/essdev</url>
-		</snapshotRepository>
-		<repository>
-			<id>essrel</id>
-			<url>http://repo.ess3.net/content/repositories/essrel</url>
-		</repository>
-	</distributionManagement>
+    <plugin>
+      <groupId>org.jacoco</groupId>
+      <artifactId>jacoco-maven-plugin</artifactId>
+      <executions>
+	<execution>
+	  <goals>
+	    <goal>prepare-agent</goal>
+	    </goals>
+	  </execution>
+	<!-- attached to Maven test phase -->
+	<execution>
+	  <id>report</id>
+	  <phase>test</phase>
+	  <goals>
+	    <goal>report</goal>
+	    </goals>
+	  </execution>
+	</executions>
+      </plugin>
 
-	<modules>
-		<module>Essentials</module>
-		<module>EssentialsAntiBuild</module>
-		<module>EssentialsChat</module>
-		<module>EssentialsGeoIP</module>
-		<module>EssentialsProtect</module>
-		<module>EssentialsSpawn</module>
-		<module>EssentialsXMPP</module>
-	</modules>
+      <!-- Important: enable enforcer plug-in: -->
+      <plugin>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <executions> <!-- or?  combine.children="merge"> -->
+          <execution>
+            <id>enforce-properties</id>
+	    <phase>validate</phase>
+            <goals><goal>enforce</goal></goals>
+          </execution>
+        </executions>
+      </plugin>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.bukkit</groupId>
-			<artifactId>bukkit</artifactId>
-			<version>1.7.2-R0.3-SNAPSHOT</version>
-			<scope>system</scope>
-			<systemPath>${user.dir}/lib/bukkit.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.12.2</version>
-		</dependency>
-	</dependencies>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>${version.plugin.surefire}</version>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <classpathDependencyExcludes>
+            <exclude>javax.measure:jsr-275</exclude>
+          </classpathDependencyExcludes>
+          <excludes>
+            <exclude>com/fasterxml/jackson/failing/*.java</exclude>
+          </excludes>
+          <!-- 26-Nov-2019, tatu: moar parallelism! Per-class basis, safe, efficient enough
+                  ... although not 100% sure this makes much difference TBH
+            -->
+          <threadCount>4</threadCount>
+          <parallel>classes</parallel>
+        </configuration>
+      </plugin>
 
-	<build>
-		<sourceDirectory>src</sourceDirectory>
-		<testSourceDirectory>test</testSourceDirectory>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.7</version>
-				<executions>
-					<execution>
-						<phase>validate</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-					</execution>
-				</executions>
-				<dependencies>
-					<dependency>
-						<groupId>com.sun</groupId>
-						<artifactId>tools</artifactId>
-						<version>1.5.0</version>
-						<scope>system</scope>
-						<systemPath>${java.home}/../lib/tools.jar</systemPath>
-					</dependency>
-				</dependencies>
-				<configuration>
-					<target name="buildgm">
-						<replace dir="EssentialsGroupManager/src" includes="plugin.yml" token="version: GMBuildVer" value="version: ${GMVer}"/>
-						<ant dir="EssentialsGroupManager" antfile="build.xml"/>
-					</target>
-				</configuration>
-				<inherited>false</inherited>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.8</version>
-				<configuration>
-					<outputDirectory>jars</outputDirectory>
-					<stripVersion>true</stripVersion>
-					<artifactItems>
-						<artifactItem>
-							<groupId>${project.groupId}</groupId>
-							<artifactId>Essentials</artifactId>
-							<version>${project.version}</version>
-						</artifactItem>
-						<artifactItem>
-							<groupId>${project.groupId}</groupId>
-							<artifactId>EssentialsAntiBuild</artifactId>
-							<version>${project.version}</version>
-						</artifactItem>
-						<artifactItem>
-							<groupId>${project.groupId}</groupId>
-							<artifactId>EssentialsChat</artifactId>
-							<version>${project.version}</version>
-						</artifactItem>
-						<artifactItem>
-							<groupId>${project.groupId}</groupId>
-							<artifactId>EssentialsGeoIP</artifactId>
-							<version>${project.version}</version>
-						</artifactItem>
-						<artifactItem>
-							<groupId>${project.groupId}</groupId>
-							<artifactId>EssentialsProtect</artifactId>
-							<version>${project.version}</version>
-						</artifactItem>
-						<artifactItem>
-							<groupId>${project.groupId}</groupId>
-							<artifactId>EssentialsSpawn</artifactId>
-							<version>${project.version}</version>
-						</artifactItem>
-						<artifactItem>
-							<groupId>${project.groupId}</groupId>
-							<artifactId>EssentialsXMPP</artifactId>
-							<version>${project.version}</version>
-						</artifactItem>
-					</artifactItems>
-				</configuration>
-				<inherited>false</inherited>
-			</plugin>
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.6</version>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/jars</outputDirectory>
-							<resources>
-								<resource>
-									<directory>Essentials/src</directory>
-									<includes>
-										<include>messages*.properties</include>
-										<include>config.yml</include>
-										<include>items.csv</include>
-									</includes>
-									<excludes>
-										<exclude>plugin.yml</exclude>
-									</excludes>
-									<filtering>true</filtering>
-								</resource>
-								<resource>
-									<directory>EssentialsGroupManager/dist</directory>
-									<includes>
-										<include>EssentialsGroupManager.jar</include>
-									</includes>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
-				<inherited>false</inherited>
-			</plugin>
-			<plugin>
-				<groupId>com.google.code.maven-replacer-plugin</groupId>
-				<artifactId>replacer</artifactId>
-				<version>1.5.2</version>
-				<executions>
-					<execution>
-						<phase>process-sources</phase>
-						<goals>
-							<goal>replace</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<filesToInclude>**/src/*</filesToInclude>
-					<replacements>
-						<replacement>
-							<token>TeamCity</token>
-							<value>${build.number}</value>
-						</replacement>
-						<replacement>
-							<token>GMBuildVer</token>
-							<value>${GMVer}</value>
-						</replacement>
-						<replacement>
-							<token>$${build.number}</token>
-							<value>${build.number}</value>
-						</replacement>
-						<replacement>
-							<token>$${GMVer}</token>
-							<value>${GMVer}</value>
-						</replacement>
-					</replacements>
-				</configuration>
-				<inherited>false</inherited>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>2.5</version>
-				<configuration>
-					<filesets>
-						<fileset>
-							<directory>${basedir}</directory>
-							<includes>
-								<include>jars/**</include>
+      <!-- parent definitions should be ok, but need to add more links -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <links combine.children="append">
+            <link>http://fasterxml.github.io/jackson-annotations/javadoc/2.14</link>
+            <link>http://fasterxml.github.io/jackson-core/javadoc/2.14</link>
+          </links>
+        </configuration>
+      </plugin>
 
-								<!-- Following folders clear Ant build directories -->
-								<include>build/**</include>
-								<include>dist/**</include>
-							</includes>
-						</fileset>
-					</filesets>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9.1</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<version>2.8.1</version>
-				<configuration>
-					<deployAtEnd>true</deployAtEnd>
-				</configuration>
-			</plugin>
-		</plugins>
-		<resources>
-			<resource>
-				<directory>src</directory>
-				<includes>
-					<include>*.properties</include>
-					<include>*.yml</include>
-					<include>*.csv</include>
-					<include>*.txt</include>
-				</includes>
-				<filtering>true</filtering>
-			</resource>
-		</resources>
-	</build>
+      <!-- settings are fine, but needed to trigger execution! -->
+      <plugin>
+        <groupId>com.google.code.maven-replacer-plugin</groupId>
+        <artifactId>replacer</artifactId>
+      </plugin>
 
-	<properties>
-		<build.number>TeamCity</build.number>
-		<GMVer>GMBuildVer</GMVer>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <!--  04-Mar-2019, tatu: Add rudimentary JDK9+ module info. To build with JDK 8
+             will have to use `moduleInfoFile` as anything else requires JDK 9+
+        -->
+      <plugin>
+        <groupId>org.moditect</groupId>
+        <artifactId>moditect-maven-plugin</artifactId>
+      </plugin>
+      <!-- 03-Nov-2020, tatu: Add LICENSE from main level -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+      </plugin>
 
-		<!-- Netbeans code style -->
-		<org-netbeans-modules-editor-indent.CodeStyle.project.expand-tabs>true</org-netbeans-modules-editor-indent.CodeStyle.project.expand-tabs>
-		<org-netbeans-modules-editor-indent.CodeStyle.project.indent-shift-width>2</org-netbeans-modules-editor-indent.CodeStyle.project.indent-shift-width>
-		<org-netbeans-modules-editor-indent.CodeStyle.project.spaces-per-tab>2</org-netbeans-modules-editor-indent.CodeStyle.project.spaces-per-tab>
-		<org-netbeans-modules-editor-indent.CodeStyle.project.tab-size>2</org-netbeans-modules-editor-indent.CodeStyle.project.tab-size>
-		<org-netbeans-modules-editor-indent.CodeStyle.project.text-limit-width>120</org-netbeans-modules-editor-indent.CodeStyle.project.text-limit-width>
-		<org-netbeans-modules-editor-indent.CodeStyle.project.text-line-wrap>none</org-netbeans-modules-editor-indent.CodeStyle.project.text-line-wrap>
-		<org-netbeans-modules-editor-indent.CodeStyle.usedProfile>project</org-netbeans-modules-editor-indent.CodeStyle.usedProfile>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineAnnotationArgs>true
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineAnnotationArgs>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineArrayInit>true
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineArrayInit>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineAssignment>true
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineAssignment>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineBinaryOp>true
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineBinaryOp>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineCallArgs>true
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineCallArgs>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineDisjunctiveCatchTypes>true
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineDisjunctiveCatchTypes>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineFor>true
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineFor>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineImplements>true
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineImplements>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineMethodParams>true
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineMethodParams>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineParenthesized>true
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineParenthesized>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineTernaryOp>true
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineTernaryOp>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineThrows>true
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineThrows>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineTryResources>true
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineTryResources>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.blankLinesAfterClassHeader>0
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.blankLinesAfterClassHeader>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.blankLinesBeforeClass>2
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.blankLinesBeforeClass>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.classDeclBracePlacement>NEW_LINE
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.classDeclBracePlacement>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.expand-tabs>false
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.expand-tabs>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.importGroupsOrder>*
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.importGroupsOrder>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.indent-shift-width>4
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.indent-shift-width>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.indentCasesFromSwitch>false
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.indentCasesFromSwitch>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.methodDeclBracePlacement>NEW_LINE
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.methodDeclBracePlacement>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.otherBracePlacement>NEW_LINE
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.otherBracePlacement>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.placeCatchOnNewLine>true
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.placeCatchOnNewLine>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.placeElseOnNewLine>true
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.placeElseOnNewLine>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.placeFinallyOnNewLine>true
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.placeFinallyOnNewLine>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.placeWhileOnNewLine>true
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.placeWhileOnNewLine>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.separateImportGroups>false
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.separateImportGroups>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.spaceAfterTypeCast>false
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.spaceAfterTypeCast>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.spaces-per-tab>4
-		</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.spaces-per-tab>
-		<org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.tab-size>4</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.tab-size>
-	</properties>
+      <plugin>
+        <groupId>de.jjohannes</groupId>
+        <artifactId>gradle-module-metadata-maven-plugin</artifactId>
+      </plugin>
+     </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>release</id>
+      <properties>
+        <maven.test.skip>true</maven.test.skip>
+        <skipTests>true</skipTests>
+      </properties>
+    </profile>
+    <!-- 07-Dec-2021, tatu: This is a huge mess, sorry folks... -->
+    <profile>
+      <id>java14</id>
+      <activation>
+        <jdk>14</jdk>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>add-test-source</id>
+                <phase>generate-test-sources</phase>
+                <goals>
+                  <goal>add-test-source</goal>
+                </goals>
+                <configuration>
+                  <sources>
+                    <source>src/test-jdk14/java</source>
+                  </sources>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <inherited>true</inherited>
+            <configuration>
+              <optimize>true</optimize>
+              <!-- Enable Java 14+ for all sources so that Intellij picks the right language level -->
+              <source>14</source>
+              <release>14</release>
+              <compilerArgs>
+                <arg>-parameters</arg>
+                <arg>--enable-preview</arg>
+              </compilerArgs>
+            	<fork>true</fork>
+            	<useIncrementalCompilation>true</useIncrementalCompilation>
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <argLine>--enable-preview</argLine>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <!-- And different set up for JDK 17 -->
+      <id>java17</id>
+      <activation>
+        <jdk>17</jdk>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>add-test-source</id>
+                <phase>generate-test-sources</phase>
+                <goals>
+                  <goal>add-test-source</goal>
+                </goals>
+                <configuration>
+                  <sources>
+                    <source>src/test-jdk14/java</source>
+                  </sources>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <inherited>true</inherited>
+            <configuration>
+              <optimize>true</optimize>
+              <!-- Enable Java 17 for all sources so that Intellij picks the right language level -->
+              <source>17</source>
+              <release>17</release>
+              <compilerArgs>
+                <arg>-parameters</arg>
+              </compilerArgs>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>errorprone</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+              <compilerArgs>
+                <arg>-XDcompilePolicy=simple</arg>
+                <arg>
+                  -Xplugin:ErrorProne
+                  <!--
+                  Disable all checks in test code. Bugs in tests can hide runtime failures,
+                  however these can be enabled later on. Many issues may require sub-optional
+                  code to reproduce failures.
+                  -->
+                  -XepExcludedPaths:.*/src/test/java/.*
+
+                  <!-- ############### -->
+                  <!-- UPGRADED CHECKS -->
+                  <!-- ############### -->
+
+                  <!-- Boxed primitive equality checks can be dangerous when presented with unexpected inputs -->
+                  -Xep:BoxedPrimitiveEquality:ERROR
+
+                  <!-- ############### -->
+                  <!-- DISABLED CHECKS -->
+                  <!-- ############### -->
+
+                  <!-- UnusedVariable is great at catching mistakes quickly, but
+                  requires a few suppressions to avoid noise. Deferring to avoid noise
+                  with the introduction of ErrorProne. -->
+                  -Xep:UnusedVariable:OFF
+                  <!--
+                  Disabled to avoid potential API changes. It's not clear if custom JsonNode types
+                  exist, and if any do implement equals without hashCode, it's likely they cause bugs.
+                  I plan to try fixing this separately.
+                  -->
+                  -Xep:EqualsHashCode:OFF
+                  <!-- Style: javadoc tag validation -->
+                  -Xep:MissingSummary:OFF
+                  -Xep:InvalidInlineTag:OFF
+                  -Xep:EmptyBlockTag:OFF
+                  -Xep:AlmostJavadoc:OFF
+                  -Xep:InvalidLink:OFF
+                  <!-- Style: low reward for enabling. -->
+                  -Xep:UnnecessaryParentheses:OFF
+                  <!-- Style: low signal -->
+                  -Xep:InconsistentCapitalization:OFF
+                  <!-- Style: requires specific comments when switch branches neither break nor return -->
+                  -Xep:FallThrough:OFF
+                  <!-- Style: disable noisy check for importing common names from nested classes -->
+                  -Xep:BadImport:OFF
+                  <!-- Style: requires a default case when not all cases are handled -->
+                  -Xep:MissingCasesInEnumSwitch:OFF
+                  <!-- Style: avoid clashes with java.lang. Possibly worth enabling, but this can be done later -->
+                  -Xep:JavaLangClash:OFF
+                  <!-- These can likely be updated from protected to private, but it's relatively low signal -->
+                  -Xep:ProtectedMembersInFinalClass:OFF
+                  <!-- These can likely be updated from public to protected, but it's relatively low signal -->
+                  -Xep:PublicConstructorForAbstractClass:OFF
+                  <!-- jackson-databind doesn't have a logger, in many cases there's no way to pre-validate inputs -->
+                  -Xep:EmptyCatch:OFF
+                  -Xep:EqualsGetClass:OFF
+                  <!-- Noisy check that's largely unnecessary unless the result is mutated.
+                  Returning only immutable collections requires additional overhead and
+                  impact must be carefully considered. -->
+                  -Xep:MixedMutabilityReturnType:OFF
+                  <!-- Noisy in jackson and libraries which must interact with generics -->
+                  -Xep:TypeParameterUnusedInFormals:OFF
+                  <!-- Check is noisy around code that's meant to handle types that are considered obsolete -->
+                  -Xep:JdkObsolete:OFF
+                  <!-- Avoid noise from tests -->
+                  -Xep:JUnit3FloatingPointComparisonWithoutDelta:OFF
+                  <!-- Disable the StringSplitter check because it requires a guava dependency -->
+                  -Xep:StringSplitter:OFF
+                  <!-- Disable checks which require custom annotations -->
+                  -Xep:AnnotateFormatMethod:OFF
+                  -Xep:GuardedBy:OFF
+                  <!-- This check is generally high signal, however it is noisy in
+                  low level projects which implement caches and interning. -->
+                  -Xep:ReferenceEquality:OFF
+                </arg>
+              </compilerArgs>
+              <annotationProcessorPaths>
+                <path>
+                  <groupId>com.google.errorprone</groupId>
+                  <artifactId>error_prone_core</artifactId>
+                  <version>2.4.0</version>
+                </path>
+              </annotationProcessorPaths>
+            	<fork>true</fork>
+            	<useIncrementalCompilation>true</useIncrementalCompilation>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
 </project>
