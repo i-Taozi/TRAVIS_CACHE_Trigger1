@@ -1,31 +1,28 @@
-language: java
+dist: bionic
+language: node_js
+node_js: 12
 
-os: linux
+env:
+  - JOB_TYPE=linter
+  - JOB_TYPE=acceptance_tests
+  global:
+    - BBB_SERVER_URL=http://localhost/bigbluebutton/api
 
-# Need to select an older Ubuntu distribution that supports JDK7
-dist: trusty
-
-jdk:
-  - openjdk7
-  - oraclejdk8
-  - openjdk8
-  - oraclejdk9
-  - openjdk11
-  - openjdk14
-
-# Workaround to using openjdk7 with Gradle due to security issue:
-# https://github.com/gradle/gradle/issues/2421
-before_install:
-- BCPROV_FILENAME=bcprov-ext-jdk15on-158.jar
-- wget "https://bouncycastle.org/download/${BCPROV_FILENAME}"
-- sudo mv $BCPROV_FILENAME /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext
-- sudo perl -pi.bak -e 's/^(security\.provider\.)([0-9]+)/$1.($2+1)/ge' /etc/java-7-openjdk/security/java.security
-- echo "security.provider.1=org.bouncycastle.jce.provider.BouncyCastleProvider" | sudo tee -a /etc/java-7-openjdk/security/java.security
+jobs:
+  allow_failures:
+  - env: JOB_TYPE=linter
+  include:
+  - stage: "Linter"
+    name: "ESLint"
+    env: JOB_TYPE=linter
+  - stage: "Tests"
+    name: "Acceptance Tests"
+    env: JOB_TYPE=acceptance_tests
 
 script:
-  - ./gradlew clean build javadoc
+  - travis_wait 30 bash ./build_script.sh $JOB_TYPE
 
-cache:
-  directories:
-  - $HOME/.gradle/caches/
-  - $HOME/.gradle/wrapper/
+after_script:
+  - docker stop $docker
+  - docker rm $docker
+  - docker rmi b2

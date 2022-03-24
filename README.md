@@ -1,62 +1,20 @@
-![JavaHamcrest](http://hamcrest.org/images/logo.jpg)
-
-[![Build Status](https://travis-ci.org/hamcrest/JavaHamcrest.png?branch=master)](https://travis-ci.org/hamcrest/JavaHamcrest) [![Maven Central](https://img.shields.io/maven-central/v/org.hamcrest/hamcrest.svg?label=Maven%20Central)](https://search.maven.org/artifact/org.hamcrest/hamcrest)
-
-Java Hamcrest
+BigBlueButton
 =============
-Licensed under [BSD License][].
+BigBlueButton is an open source web conferencing system.  
 
-What is Hamcrest?
------------------
-Hamcrest is a library of matchers, which can be combined in to create flexible expressions of intent in tests.
-They've also been used for other purposes.
+BigBlueButton supports real-time sharing of audio, video, slides (with whiteboard controls), chat, and the screen.  Instructors can engage remote students with polling, emojis, multi-user whiteboard, and breakout rooms.  
 
-Downloads
----------
-You can obtain Hamcrest binaries from [maven central](https://search.maven.org/artifact/org.hamcrest/hamcrest). Learn more at [Hamcrest Distributables](http://hamcrest.org/JavaHamcrest/distributables).
+Presenters can record and playback content for later sharing with others.
 
-Extensions
-----------
+We designed BigBlueButton for online learning, (though it can be used for many [other applications](https://www.c4isrnet.com/it-networks/2015/02/11/disa-to-replace-dco-with-new-collaboration-services-tool/) as well).  The educational use cases for BigBlueButton are
 
-For Hamcrest extension projects see the [hamcrest extensions page][].
+  * Online tutoring (one-to-one)
+  * Flipped classrooms (recording content ahead of your session)
+  * Group collaboration (many-to-many)
+  * Online classes (one-to-many)
 
-Documentation
--------------
-Documentation can be found on the [Hamcrest site](http://hamcrest.org).
+You can install on a Ubuntu 18.04 64-bit server. We provide [bbb-install.sh](https://github.com/bigbluebutton/bbb-install) to let you have a server up and running within 30 minutes (or your money back 😉).
 
-Reporting Bugs/Issues
----------------------
-If you find an issue with Java Hamcrest, please report it via the 
-[GitHub issue tracker](https://github.com/hamcrest/JavaHamcrest/issues), 
-after first checking that it hasn't been raised already. 
+For full technical documentation BigBlueButton -- including architecture, features, API, and GreenLight (the default front-end) -- see [https://docs.bigbluebutton.org/](https://docs.bigbluebutton.org/).
 
-Source
-------
-To build, please read BUILDING.txt
-
-Acknowledgements
-----------------
-Developers:
-
-  * Joe Walnes
-  * Nat Pryce
-  * Steve Freeman
-
-Contributors:
-
-  * Robert Chatley
-  * Tom White
-  * Neil Dunn
-  * Dan North
-  * Magne Rasmussen
-  * David Saff
-  * Tom Denley
-
-Also, thanks to everyone who has worked on DynaMock, nMock, jMock, EasyMock and MiniMock! These libraries inspired Hamcrest.
-
-
-[logo]: http://hamcrest.org/images/logo.jpg
-[website]: https://github.com/hamcrest/JavaHamcrest
-[BSD License]: http://opensource.org/licenses/BSD-3-Clause
-[hamcrest extensions page]: https://github.com/hamcrest/JavaHamcrest/wiki/Related-Projects
-[GitHub issue tracker]: https://github.com/hamcrest/JavaHamcrest/issues
+BigBlueButton and the BigBlueButton Logo are trademarks of [BigBlueButton Inc](https://bigbluebutton.org) .
