@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <meta content="utf-8" http-equiv="encoding"/>
+    <title>org.example Template Playground</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.css" />
+    <link rel="stylesheet" href="/webjars/templates_cli/0.1.0/css/provtemplate.css" />
+</head>
+
+<script type="text/javascript" src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="/webjars/JSV/lib/jsv.js"></script>
+<script type="text/javascript" src="/webjars/underscore/1.12.0/underscore.js"></script>
+<script type="text/javascript" src="/webjars/JSV/lib/jsv.js"></script>
+<script type="text/javascript" src="/webjars/jsonform/lib/jsonform.js"></script>
+<script type="text/javascript" src="/webjars/templates_cli/0.1.0/js/org/example/templates/block/client/Template_blockBuilder.js"></script>
+<script type="text/javascript" src="/webjars/templates_cli/0.1.0/js/org/example/templates/block/client/Template_blockBean.js"></script>
+
+<script type="text/javascript" src="/webjars/templates_cli/0.1.0/js/org/example/templates/client/Logger.js"></script>
+<script type="text/javascript" src="/webjars/templates_cli/0.1.0/js/TemplateManager.js"></script>
+
+<body>
+<div class="container">
+    <div class="row header">
+        <div class="col-xs-12 text-center">
+            <h3>Template Testing</h3>
+        </div>
+        <div class="col-xs-2">
+            <div id="template-dropdown-playground">
+                <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">org.example Templates</a>
+            </div>
+        </div>
+
+        <div class="col-xs-7 first-column">
+            <div>
+                <form></form>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <h4>CSV encoding</h4>
+            <div id="csv_result"></div>
+        </div>
+    </div>
+
+</div>
+</body>
+<script>
+    var schemaUrl = "http://localhost:7070/webjars/templates_cli/0.1.0/schema/schema.json";
+    var logger=new org.example.templates.client.Logger();
+
+    var profile = {
+        "template_block": ["isA", "operation", "operation_type", "agent", "consumed1", "consumed_value1", "consumed2", "consumed_value2"]
+    };
+
+    var templateManager=new TemplateManager(logger,schemaUrl, false, profile);
+    templateManager.createDropdownForPlayground("#template-dropdown-playground", "templateManager");
+
+</script>
+
+<script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7/js/dropdown.js"></script>
+<script src="/webjars/bootstrap/3.3.7/js/tab.js"></script>
+<script>
+    $('.dropdown-toggle').dropdown();
+</script>
+
+</html>

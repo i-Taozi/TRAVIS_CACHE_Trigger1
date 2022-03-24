@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="Osmorc" url="file://$PROJECT_DIR$/modules-executable/prov-interop" />
+    <file type="web" url="file://$PROJECT_DIR$/modules-services/service-translator" />
+  </component>
+  <component name="JavadocGenerationManager">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/target" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/prov-scala/pom.xml" />
+        <option value="$PROJECT_DIR$/modules-services/prov-service-core/pom.xml" />
+        <option value="$PROJECT_DIR$/modules-services/prov-service-translation/pom.xml" />
+        <option value="$PROJECT_DIR$/modules-services/prov-log/pom.xml" />
+        <option value="$PROJECT_DIR$/modules-template/prov-template-compiler/pom.xml" />
+        <option value="$PROJECT_DIR$/modules-services/service-translator/pom.xml" />
+        <option value="$PROJECT_DIR$/modules-services/docker-service-translator/pom.xml" />
+        <option value="$PROJECT_DIR$/modules-services/index-redis/pom.xml" />
+        <option value="$PROJECT_DIR$/modules-core/prov-jsonld/pom.xml" />
+        <option value="$PROJECT_DIR$/modules-executable/prov-interop-light/pom.xml" />
+        <option value="$PROJECT_DIR$/modules-storage/pom.xml" />
+        <option value="$PROJECT_DIR$/modules-storage/prov-storage-index-redis/pom.xml" />
+        <option value="$PROJECT_DIR$/modules-legacy/benchmarks/pom.xml" />
+        <option value="$PROJECT_DIR$/modules-core/jsweet-quickstart/pom.xml" />
+        <option value="$PROJECT_DIR$/modules-js/prov-js-core/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/modules-executable/toolbox/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="12.0.1" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/classes" />
+  </component>
+</project>

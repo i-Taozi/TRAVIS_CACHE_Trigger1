@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="32d81b8d-5fb4-47ec-a1fa-b0af3f34fabe" name="Default Changelist" comment="First cut of json-ld serialisation for activities">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="315" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="ProvToolbox" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Package Object" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="development" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="JsBowerSettings">
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1Sn3wNZbfFqwhTxNiyaVJ58yqRM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="RunConfigurationTargetLRU" value="820a477f-bd9d-4d45-ab36-64f49317b635" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="public" />
+    <property name="extractMethod.generateAnnotations" value="false" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/legacy/roundtrip/src/test/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/modules-template/prov-template-compiler/demo.webapp/src/main/webapp" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="scala_project_settings_configurable.last_selected_tab_index" value="0" />
+    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.openprovenance.prov.template.log2prov" />
+      <recent name="org.openprovenance.prov.core.jsonld11.serialization.serial" />
+      <recent name="org.openprovenance.prov.service.core" />
+      <recent name="org.openprovenance.prov.service.translation" />
+      <recent name="org.openprovenance.prov.interop" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/modules-template/prov-template-compiler/demo.webapp/src/main/webapp" />
+      <recent name="$PROJECT_DIR$/modules-template/jsweet-candy-quickstart-master/src/main/java" />
+      <recent name="$PROJECT_DIR$/modules-template/prov-jsweet-candy/src/main/java/org/openprovenance/apache/commons/lang" />
+      <recent name="$PROJECT_DIR$/modules-js2/prov-js-core" />
+      <recent name="$PROJECT_DIR$/modules-js2/prov-js-core/src/main/java/org/openprovenance" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/modules-js2/prov-js-core/src/main/java/org/openprovenance/apache/commons" />
+      <recent name="$PROJECT_DIR$/modules-template/prov-template-compiler/src/test" />
+      <recent name="$PROJECT_DIR$/modules-template/prov-template-compiler/src/main/resources/schema" />
+      <recent name="$PROJECT_DIR$/modules-js" />
+      <recent name="$PROJECT_DIR$/modules-core/jsweet-quickstart/src2/main/java/quickstart" />
+    </key>
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="org.openprovenance.prov.interop.Configuration" />
+      <recent name="org.openprovenance.prov.core.serialization.Constants" />
+    </key>
+    <key name="IntroduceConstantDialog.RECENTS_KEY">
+      <recent name="org.openprovenance.prov.template.log2prov.RecordSQLProcessor" />
+      <recent name="org.openprovenance.prov.template.compiler.ConfigProcessor" />
+      <recent name="org.openprovenance.prov.storage.mongodb.MongoCSVResourceStorage" />
+      <recent name="org.openprovenance.prov.service.translation.ActionExpand" />
+      <recent name="org.openprovenance.prov.storage.mongodb.mongoDbTest" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="org.openprovenance.prov.storage.mongodb" />
+      <recent name="org.openprovenance.prov.core.json" />
+      <recent name="org.openprovenance.prov.core" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.openprovenance.prov.storage.redis" />
+      <recent name="org.openprovenance.prov.storage.filesystem" />
+      <recent name="org.openprovenance.prov.storage.api" />
+      <recent name="org.openprovenance.prov.service.core" />
+      <recent name="org.openprovenance.prov.scala" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.openprovenance.prov.template.log2prov.interfaces" />
+      <recent name="org.openprovenance.prov.template.log2prov" />
+      <recent name="org.example.remote" />
+      <recent name="org.openprovenance.prov.template.compiler" />
+      <recent name="org.openprovenance.prov.benchmarks" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.ProxyTest.testProxy1">
+    <configuration name="createdb.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/modules-template/prov-template-compiler/src/test/sql/createdb.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="820a477f-bd9d-4d45-ab36-64f49317b635" />
+      <method v="2" />
+    </configuration>
+    <configuration name="IT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service-translator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.openprovenance.prov.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.openprovenance.prov.service.translator.roundtrip" />
+      <option name="MAIN_CLASS_NAME" value="org.openprovenance.prov.service.translator.roundtrip.IT" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProxyTest.testProxy1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="prov-template-compiler" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.ProxyTest" />
+      <option name="METHOD_NAME" value="testProxy1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QualifiedNameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="prov-model" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.openprovenance.prov.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.openprovenance.prov.model" />
+      <option name="MAIN_CLASS_NAME" value="org.openprovenance.prov.model.QualifiedNameTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ModelSpec" type="ScalaTestRunConfiguration" factoryName="ScalaTest" show_console_on_std_err="false" show_console_on_std_out="false">
+      <module name="prov-model-scala" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <option name="testKind" value="Class" />
+      <option name="jrePath" value="" />
+      <option name="searchTest" value="In single module" />
+      <option name="testClassPath" value="org.openprovenance.prov.scala.ModelSpec" />
+      <option name="workingDirectory" value="$PROJECT_DIR$/modules-core/prov-model-scala" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParserSpec" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
+      <module name="prov-model-scala" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <option name="testKind" value="Class" />
+      <option name="testClassPath" value="org.openprovenance.prov.scala.ParserSpec" />
+      <option name="workingDirectory" value="$PROJECT_DIR$/modules-core/prov-model-scala" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Database Script.createdb.sql" />
+      <item itemvalue="JUnit.IT" />
+      <item itemvalue="JUnit.ProxyTest.testProxy1" />
+      <item itemvalue="JUnit.QualifiedNameTest" />
+      <item itemvalue="ScalaTest.ModelSpec" />
+      <item itemvalue="ScalaTest.ParserSpec" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="ScalaTest.ParserSpec" />
+        <item itemvalue="JUnit.QualifiedNameTest" />
+        <item itemvalue="JUnit.ProxyTest.testProxy1" />
+        <item itemvalue="JUnit.IT" />
+        <item itemvalue="Database Script.createdb.sql" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="32d81b8d-5fb4-47ec-a1fa-b0af3f34fabe" name="Default Changelist" comment="" />
+      <created>1563129022141</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1563129022141</updated>
+      <workItem from="1563129024345" duration="6916000" />
+      <workItem from="1563224680560" duration="1867000" />
+      <workItem from="1563296369837" duration="3522000" />
+      <workItem from="1563618542241" duration="2475000" />
+      <workItem from="1563716775188" duration="447000" />
+      <workItem from="1563737915342" duration="255000" />
+      <workItem from="1564838129931" duration="24000" />
+      <workItem from="1565514544963" duration="70858000" />
+      <workItem from="1566512383366" duration="19334000" />
+      <workItem from="1566920367084" duration="2951000" />
+      <workItem from="1566929460594" duration="2272000" />
+      <workItem from="1567007361993" duration="19002000" />
+      <workItem from="1567075018595" duration="89860000" />
+      <workItem from="1567440900973" duration="89368000" />
+      <workItem from="1568128965781" duration="16768000" />
+      <workItem from="1568294817392" duration="715000" />
+      <workItem from="1568304454117" duration="4238000" />
+      <workItem from="1568395314496" duration="12031000" />
+      <workItem from="1568526450161" duration="58000" />
+      <workItem from="1568527272929" duration="10303000" />
+      <workItem from="1568649088425" duration="9682000" />
+      <workItem from="1568665328032" duration="5510000" />
+      <workItem from="1568727939431" duration="2625000" />
+      <workItem from="1568731407888" duration="2180000" />
+      <workItem from="1568735664509" duration="15177000" />
+      <workItem from="1568822475377" duration="24926000" />
+      <workItem from="1568929320509" duration="85000" />
+      <workItem from="1568929432614" duration="17903000" />
+      <workItem from="1568998999272" duration="844000" />
+      <workItem from="1569007511430" duration="27969000" />
+      <workItem from="1569238166374" duration="32831000" />
+      <workItem from="1569487971436" duration="2686000" />
+      <workItem from="1569571239044" duration="41854000" />
+      <workItem from="1570045029195" duration="1199000" />
+      <workItem from="1570568871070" duration="584000" />
+      <workItem from="1571068102002" duration="6859000" />
+      <workItem from="1571676632473" duration="1565000" />
+      <workItem from="1571990355693" duration="598000" />
+      <workItem from="1572185772303" duration="293000" />
+      <workItem from="1573329086015" duration="1469000" />
+      <workItem from="1573771459162" duration="1660000" />
+      <workItem from="1574428320336" duration="709000" />
+      <workItem from="1574457129683" duration="14264000" />
+      <workItem from="1574594291845" duration="3308000" />
+      <workItem from="1574710561865" duration="597000" />
+      <workItem from="1574799487945" duration="21937000" />
+      <workItem from="1576159145395" duration="11917000" />
+      <workItem from="1576580732869" duration="598000" />
+      <workItem from="1576785833100" duration="6665000" />
+      <workItem from="1577174772445" duration="593000" />
+      <workItem from="1577175806683" duration="11173000" />
+      <workItem from="1577478646976" duration="134106000" />
+      <workItem from="1578298009919" duration="4074000" />
+      <workItem from="1578309962716" duration="198000" />
+      <workItem from="1578311468149" duration="17010000" />
+      <workItem from="1578432397613" duration="35500000" />
+      <workItem from="1578685335278" duration="16021000" />
+      <workItem from="1578933451413" duration="10077000" />
+      <workItem from="1579020960895" duration="7698000" />
+      <workItem from="1579103866065" duration="9923000" />
+      <workItem from="1579163537374" duration="1272000" />
+      <workItem from="1579193436836" duration="62163000" />
+      <workItem from="1579551877689" duration="1097000" />
+      <workItem from="1579627674311" duration="9499000" />
+      <workItem from="1579711129972" duration="52948000" />
+      <workItem from="1580141028092" duration="6904000" />
+      <workItem from="1580238346797" duration="17472000" />
+      <workItem from="1580648177809" duration="5205000" />
+      <workItem from="1580760841397" duration="2246000" />
+      <workItem from="1580930628029" duration="1457000" />
+      <workItem from="1581083932921" duration="4757000" />
+      <workItem from="1581365929732" duration="5476000" />
+      <workItem from="1581404742634" duration="1076000" />
+      <workItem from="1581444336990" duration="85736000" />
+      <workItem from="1581843241985" duration="2151000" />
+      <workItem from="1581866438814" duration="8651000" />
+      <workItem from="1582095456127" duration="10000" />
+      <workItem from="1582197788071" duration="2413000" />
+      <workItem from="1582271933960" duration="8000" />
+      <workItem from="1582272021986" duration="614000" />
+      <workItem from="1582370753493" duration="12267000" />
+      <workItem from="1582388652790" duration="3689000" />
+      <workItem from="1582403306770" duration="3464000" />
+      <workItem from="1582438880264" duration="1117000" />
+      <workItem from="1582446646363" duration="7371000" />
+      <workItem from="1582479276865" duration="5058000" />
+      <workItem from="1582492607565" duration="409000" />
+      <workItem from="1582521185844" duration="147000" />
+      <workItem from="1582888880871" duration="2750000" />
+      <workItem from="1583082542097" duration="611000" />
+      <workItem from="1583129768131" duration="3074000" />
+      <workItem from="1583140278855" duration="3473000" />
+      <workItem from="1583178462493" duration="924000" />
+      <workItem from="1583183077327" duration="974000" />
+      <workItem from="1583184614419" duration="467000" />
+      <workItem from="1583247862231" duration="1582000" />
+      <workItem from="1583352927084" duration="21000" />
+      <workItem from="1583352968996" duration="598000" />
+      <workItem from="1584292219617" duration="648000" />
+      <workItem from="1585166092085" duration="2174000" />
+      <workItem from="1585901013171" duration="3983000" />
+      <workItem from="1586445563313" duration="8414000" />
+      <workItem from="1589295570990" duration="6488000" />
+      <workItem from="1589873474208" duration="598000" />
+      <workItem from="1589904346599" duration="10754000" />
+      <workItem from="1592410461225" duration="15238000" />
+      <workItem from="1592982099967" duration="598000" />
+      <workItem from="1594193273745" duration="609000" />
+      <workItem from="1594301244769" duration="1214000" />
+      <workItem from="1595576596885" duration="1793000" />
+      <workItem from="1595766691049" duration="1809000" />
+      <workItem from="1596355023476" duration="15000" />
+      <workItem from="1596355845664" duration="4616000" />
+      <workItem from="1596639625332" duration="1581000" />
+      <workItem from="1597416998452" duration="5000" />
+      <workItem from="1601632527989" duration="7986000" />
+      <workItem from="1601815482225" duration="597000" />
+      <workItem from="1601834425397" duration="596000" />
+      <workItem from="1601928179849" duration="1191000" />
+      <workItem from="1602098460725" duration="2234000" />
+      <workItem from="1602658625698" duration="1211000" />
+      <workItem from="1602786155167" duration="1195000" />
+      <workItem from="1603354249456" duration="6921000" />
+      <workItem from="1603617824628" duration="598000" />
+      <workItem from="1603917283491" duration="2518000" />
+      <workItem from="1604347954453" duration="598000" />
+      <workItem from="1604668309832" duration="3000" />
+      <workItem from="1604833142976" duration="2072000" />
+      <workItem from="1605214938905" duration="1195000" />
+      <workItem from="1605285281388" duration="788000" />
+      <workItem from="1605735530895" duration="613000" />
+      <workItem from="1605860146592" duration="2189000" />
+      <workItem from="1606638232738" duration="598000" />
+      <workItem from="1606665604516" duration="558000" />
+      <workItem from="1607096975033" duration="599000" />
+      <workItem from="1607602593119" duration="597000" />
+      <workItem from="1608114858942" duration="21000" />
+      <workItem from="1608295816485" duration="10703000" />
+      <workItem from="1609357288112" duration="193000" />
+      <workItem from="1609357569124" duration="2636000" />
+      <workItem from="1609684239208" duration="2325000" />
+      <workItem from="1610100159387" duration="47261000" />
+      <workItem from="1610706267007" duration="20679000" />
+      <workItem from="1611083865960" duration="32718000" />
+      <workItem from="1611500983240" duration="3494000" />
+      <workItem from="1611587766766" duration="105632000" />
+      <workItem from="1611932987304" duration="7197000" />
+      <workItem from="1612466593021" duration="597000" />
+      <workItem from="1612524031476" duration="2832000" />
+      <workItem from="1612538777418" duration="35758000" />
+      <workItem from="1613022949964" duration="9863000" />
+      <workItem from="1613228799663" duration="3080000" />
+      <workItem from="1613490400163" duration="1262000" />
+      <workItem from="1613497838529" duration="5697000" />
+      <workItem from="1615104735520" duration="9498000" />
+      <workItem from="1616092713721" duration="3849000" />
+      <workItem from="1616157210454" duration="10770000" />
+      <workItem from="1616912959195" duration="5928000" />
+      <workItem from="1617904654898" duration="4867000" />
+      <workItem from="1618126924219" duration="51771000" />
+      <workItem from="1618846562151" duration="16647000" />
+      <workItem from="1618934022625" duration="36042000" />
+      <workItem from="1619183937658" duration="4418000" />
+      <workItem from="1619262230719" duration="13411000" />
+      <workItem from="1619374548816" duration="240000" />
+      <workItem from="1619374883328" duration="590000" />
+      <workItem from="1619439600746" duration="18729000" />
+      <workItem from="1619508281636" duration="73741000" />
+      <workItem from="1620019763833" duration="25602000" />
+      <workItem from="1620238896898" duration="2376000" />
+      <workItem from="1620328127838" duration="2934000" />
+      <workItem from="1620470798276" duration="211000" />
+      <workItem from="1620471091798" duration="15679000" />
+      <workItem from="1620632976731" duration="1336000" />
+      <workItem from="1620756342390" duration="7729000" />
+      <workItem from="1620843272271" duration="1874000" />
+      <workItem from="1621006891003" duration="7528000" />
+      <workItem from="1621753013373" duration="11800000" />
+      <workItem from="1622272984720" duration="595000" />
+      <workItem from="1622274581235" duration="367000" />
+      <workItem from="1622274996751" duration="68000" />
+      <workItem from="1622275311550" duration="592000" />
+      <workItem from="1622366603874" duration="594000" />
+      <workItem from="1622567521119" duration="534000" />
+      <workItem from="1622656697012" duration="17293000" />
+      <workItem from="1623086275638" duration="5856000" />
+      <workItem from="1623168480000" duration="1198000" />
+      <workItem from="1623264201808" duration="2051000" />
+    </task>
+    <task id="LOCAL-00001" summary="First cut of json-ld serialisation for activities">
+      <created>1566430960720</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1566430960720</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/modules-js/jsweet-quickstart" />
+    </ignored-roots>
+    <MESSAGE value="First cut of json-ld serialisation for activities" />
+    <option name="LAST_COMMIT_MESSAGE" value="First cut of json-ld serialisation for activities" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ProvToolbox$RoundTripFromJavaTest.ic" NAME="RoundTripFromJavaTest Coverage Results" MODIFIED="1567964860900" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.openprovenance.prov.core.*</FILTER>
+    </SUITE>
+  </component>
+</project>
