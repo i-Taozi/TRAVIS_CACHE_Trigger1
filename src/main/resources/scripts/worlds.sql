@@ -1,8 +1,0 @@
-CREATE TABLE IF NOT EXISTS worlds (
-  uniqueId INT PRIMARY KEY,
-  worldId VARCHAR(36) UNIQUE NOT NULL,
-  firstSeen BIGINT NOT NULL,
-  carbonValue MEDIUMINT NOT NULL,
-  seaLevel TINYINT NOT NULL,
-  size SMALLINT
-);

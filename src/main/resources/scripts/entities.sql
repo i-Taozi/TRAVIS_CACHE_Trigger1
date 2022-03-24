@@ -1,8 +1,0 @@
-CREATE TABLE IF NOT EXISTS entities (
-  uniqueId INT PRIMARY KEY,
-  uuid VARCHAR(36) UNIQUE NOT NULL,
-  breederId INT NOT NULL,
-  entityType VARCHAR(64) NOT NULL,
-  ticksLived INT NOT NULL,
-  alive BOOL NOT NULL
-);
