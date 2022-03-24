@@ -1,191 +1,421 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>7</version>
-    </parent>
-
-    <groupId>com.alibaba.nacos</groupId>
-    <artifactId>nacos-spring-parent</artifactId>
-    <version>0.4.0</version>
-    <name>Alibaba Nacos :: Spring :: POM</name>
+    <groupId>org.powerflows</groupId>
+    <artifactId>dmn</artifactId>
+    <version>2.1.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-
+    <name>DMN</name>
+    <description>Power Flows DMN</description>
+    <url>https://powerflows.org</url>
 
     <modules>
-        <module>nacos-spring-context</module>
-        <module>nacos-spring-samples</module>
+        <module>dmn-io-api</module>
+        <module>dmn-evaluation-provider-api</module>
+        <module>dmn-model</module>
+        <module>dmn-io-yaml</module>
+        <module>dmn-io-xml</module>
+        <module>dmn-engine</module>
+        <module>dmn-kotlin-dsl</module>
+        <module>dmn-javascript-evaluation-provider</module>
+        <module>dmn-groovy-evaluation-provider</module>
+        <module>dmn-mvel-evaluation-provider</module>
+        <module>dmn-feel-evaluation-provider</module>
+        <module>dmn-juel-evaluation-provider</module>
+        <module>dmn-test-sample-resources</module>
     </modules>
-
-    <scm>
-        <url>git@github.com:nacos-group/nacos-spring-project.git</url>
-        <connection>scm:git@github.com:nacos-group/nacos-spring-project.git</connection>
-        <developerConnection>scm:git@github.com:nacos-group/nacos-spring-project.git
-        </developerConnection>
-    </scm>
-
-    <mailingLists>
-        <mailingList>
-            <name>Development List</name>
-            <subscribe>dev-nacos+subscribe@googlegroups.com</subscribe>
-            <unsubscribe>dev-nacos+unsubscribe@googlegroups.com</unsubscribe>
-            <post>dev-nacos@googlegroups.com</post>
-        </mailingList>
-        <mailingList>
-            <name>User List</name>
-            <subscribe>users-nacos+subscribe@googlegroups.com</subscribe>
-            <unsubscribe>users-nacos+unsubscribe@googlegroups.com</unsubscribe>
-            <post>users-nacos@googlegroups.com</post>
-        </mailingList>
-        <mailingList>
-            <name>Commits List</name>
-            <subscribe>commits-nacos+subscribe@googlegroups.com</subscribe>
-            <unsubscribe>commits-nacos+unsubscribe@googlegroups.com</unsubscribe>
-            <post>commits-nacos@googlegroups.com</post>
-        </mailingList>
-    </mailingLists>
-
-    <developers>
-
-        <developer>
-            <id>Alibaba Nacos</id>
-            <name>Nacos</name>
-            <url>http://nacos.io</url>
-            <email>nacos_dev@linux.alibaba.com</email>
-        </developer>
-
-        <developer>
-            <id>mercyblitz</id>
-            <name>小马哥</name>
-            <url>http://nacos.io</url>
-            <email>mercyblitz@gmail.com</email>
-        </developer>
-    </developers>
 
     <licenses>
         <license>
-            <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
-            <distribution>repo</distribution>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
+    <organization>
+        <name>Power Flows</name>
+        <url>http://powerflows.org</url>
+    </organization>
+    <!-- Sonatype staging requires developers section -->
+    <developers>
+        <developer>
+            <name>Mariusz Kumor</name>
+            <roles>
+                <role>Software Engineer</role>
+            </roles>
+            <email>mariusz.m.kumor@gmail.com</email>
+        </developer>
+        <developer>
+            <name>Lukasz Wozniak</name>
+            <roles>
+                <role>Software Engineer</role>
+            </roles>
+            <email>stlhrt@gmail.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/powerflows/powerflows-dmn</url>
+        <connection>scm:git:https://github.com/powerflows/powerflows-dmn.git</connection>
+        <developerConnection>scm:git:https://github.com/powerflows/powerflows-dmn.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+    <issueManagement>
+        <url>https://github.com/powerflows/powerflows-dmn/issues</url>
+        <system>GitHub</system>
+    </issueManagement>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jcenter</id>
+            <name>JCenter</name>
+            <url>https://jcenter.bintray.com/</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <!-- Compiler settings properties -->
-        <maven.compiler.source>1.6</maven.compiler.source>
-        <maven.compiler.target>1.6</maven.compiler.target>
+        <java.version>1.8</java.version>
+        <maven.failsafe.version>2.22.0</maven.failsafe.version>
+        <maven.surefire.version>2.22.0</maven.surefire.version>
+        <maven.compiler.version>3.2</maven.compiler.version>
+        <maven.deploy.version>2.8.2</maven.deploy.version>
+        <maven.gpg.version>1.6</maven.gpg.version>
+        <maven.javadoc.version>3.0.1</maven.javadoc.version>
+        <maven.release.version>2.5.3</maven.release.version>
+        <maven.source.version>3.0.1</maven.source.version>
+        <gmavenplus.version>1.5</gmavenplus.version>
+        <gmaven.plugin.version>1.5</gmaven.plugin.version>
+        <jacoco.maven.plugin>0.8.2</jacoco.maven.plugin>
+        <jacoco.out.ut.file>jacoco-ut.exec</jacoco.out.ut.file>
+        <jacoco.out.it.file>jacoco-it.exec</jacoco.out.it.file>
+        <jacoco.outputDir>${project.build.directory}/jacoco-reports</jacoco.outputDir>
+        <sonar.jacoco.reportPaths>${jacoco.outputDir}/${jacoco.out.ut.file}</sonar.jacoco.reportPaths>
+        <sonar.jacoco.itReportPaths>${jacoco.outputDir}/${jacoco.out.it.file}</sonar.jacoco.itReportPaths>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-        <!-- Exclude all generated code -->
-        <sonar.jacoco.itReportPath>${project.basedir}/../test/target/jacoco-it.exec
-        </sonar.jacoco.itReportPath>
-        <sonar.exclusions>file:**/generated-sources/**,**/test/**</sonar.exclusions>
-        <!-- Nacos -->
-        <nacos.version>1.3.2</nacos.version>
-        <!-- Spring -->
-        <spring.framework.version>3.2.18.RELEASE</spring.framework.version>
-        <!--snake-yaml-->
-        <snake.yaml.version>1.19</snake.yaml.version>
-        <!-- Servlet -->
-        <servlet-api.version>3.0.1</servlet-api.version>
-        <!-- javax-->
-        <javax.annotation-api.version>1.3.2</javax.annotation-api.version>
-        <!-- apache commons-lang3 -->
-        <commons-lang3.version>3.4</commons-lang3.version>
+        <sonar.language>java</sonar.language>
+        <sonar.sourceEncoding>${project.build.sourceEncoding}</sonar.sourceEncoding>
+        <skipITs>false</skipITs>
+        <skipUTs>false</skipUTs>
+        <!-- Dependency versions -->
+        <cglib.version>3.2.5</cglib.version>
+        <dokka.version>0.9.17</dokka.version>
+        <groovy.version>2.4.15</groovy.version>
+        <jaxb.version>2.3.1</jaxb.version>
+        <juel.version>2.2.7</juel.version>
+        <junit.version>5.4.1</junit.version>
+        <kotlin.code.style>official</kotlin.code.style>
+        <kotlin.version>1.3.21</kotlin.version>
+        <kotlintest.version>3.3.2</kotlintest.version>
+        <log4j.version>2.11.2</log4j.version>
+        <lombok.version>1.18.6</lombok.version>
+        <mockk.version>1.9</mockk.version>
+        <mvel.version>2.4.4.Final</mvel.version>
+        <nexus.staging.maven.version>1.6.8</nexus.staging.maven.version>
+        <objenesis.version>3.0.1</objenesis.version>
+        <slf4j.version>1.7.26</slf4j.version>
+        <snakeyaml.version>1.24</snakeyaml.version>
+        <sonar.language>kotlin</sonar.language>
+        <spock.version>1.1-groovy-2.4</spock.version>
     </properties>
 
-    <!-- 管理依赖版本号,子项目不会默认依赖 -->
     <dependencyManagement>
         <dependencies>
-
+            <!-- Power Flows -->
             <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
-                <version>${servlet-api.version}</version>
-                <scope>provided</scope>
+                <groupId>org.powerflows</groupId>
+                <artifactId>dmn-model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.powerflows</groupId>
+                <artifactId>dmn-evaluation-provider-api</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.powerflows</groupId>
+                <artifactId>dmn-io-api</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.powerflows</groupId>
+                <artifactId>dmn-test-sample-resources</artifactId>
+                <version>${project.parent.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.alibaba.nacos</groupId>
-                <artifactId>nacos-client</artifactId>
-                <version>${nacos.version}</version>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
             </dependency>
 
+            <!-- Tests -->
             <dependency>
-                <groupId>org.yaml</groupId>
-                <artifactId>snakeyaml</artifactId>
-                <version>${snake.yaml.version}</version>
+                <groupId>org.codehaus.groovy</groupId>
+                <artifactId>groovy-all</artifactId>
+                <version>${groovy.version}</version>
             </dependency>
-
             <dependency>
-                <groupId>javax.annotation</groupId>
-                <artifactId>javax.annotation-api</artifactId>
-                <version>${javax.annotation-api.version}</version>
+                <groupId>org.spockframework</groupId>
+                <artifactId>spock-core</artifactId>
+                <version>${spock.version}</version>
             </dependency>
-    
             <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>${commons-lang3.version}</version>
+                <groupId>cglib</groupId>
+                <artifactId>cglib-nodep</artifactId>
+                <version>${cglib.version}</version>
             </dependency>
-
-            <!-- Spring Framework -->
-
             <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-core</artifactId>
-                <version>${spring.framework.version}</version>
-                <optional>true</optional>
+                <groupId>org.objenesis</groupId>
+                <artifactId>objenesis</artifactId>
+                <version>${objenesis.version}</version>
             </dependency>
 
+            <!-- Logger -->
             <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-context</artifactId>
-                <version>${spring.framework.version}</version>
-                <optional>true</optional>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
             </dependency>
-
-            <!-- Testing -->
             <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>4.12</version>
-                <scope>test</scope>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j-impl</artifactId>
+                <version>${log4j.version}</version>
             </dependency>
-
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-test</artifactId>
-                <version>${spring.framework.version}</version>
-                <scope>test</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.mockito</groupId>
-                <artifactId>mockito-core</artifactId>
-                <version>2.15.0</version>
-                <scope>test</scope>
-            </dependency>
-
         </dependencies>
     </dependencyManagement>
 
+    <build>
+        <testResources>
+            <testResource>
+                <directory>${basedir}/src/test/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/application*.yml</include>
+                    <include>**/application*.yaml</include>
+                    <include>**/application*.properties</include>
+                </includes>
+            </testResource>
+            <testResource>
+                <directory>${basedir}/src/test/resources</directory>
+                <excludes>
+                    <exclude>**/application*.yml</exclude>
+                    <exclude>**/application*.yaml</exclude>
+                    <exclude>**/application*.properties</exclude>
+                </excludes>
+            </testResource>
+        </testResources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.gmaven</groupId>
+                <artifactId>gmaven-plugin</artifactId>
+                <version>${gmaven.plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+                <version>${gmavenplus.version}</version>
+                <configuration>
+                    <testSources>
+                        <testSource>
+                            <directory>${project.basedir}/src/test/groovy</directory>
+                            <includes>
+                                <include>**/*.groovy</include>
+                            </includes>
+                        </testSource>
+                    </testSources>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.maven.plugin}</version>
+                <executions>
+                    <execution>
+                        <id>prepare-ut-agent</id>
+                        <phase>process-test-classes</phase>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                        <configuration>
+                            <destFile>${sonar.jacoco.reportPaths}</destFile>
+                            <propertyName>jacoco.agent.ut.arg</propertyName>
+                            <append>true</append>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>prepare-it-agent</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>prepare-agent-integration</goal>
+                        </goals>
+                        <configuration>
+                            <destFile>${sonar.jacoco.itReportPaths}</destFile>
+                            <propertyName>jacoco.agent.it.arg</propertyName>
+                            <append>true</append>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.version}</version>
+                <configuration>
+                    <argLine>${jacoco.agent.ut.arg}</argLine>
+                    <skipTests>${skipUTs}</skipTests>
+                    <includes>
+                        <include>**/*Spec.*</include>
+                    </includes>
+                    <excludes>
+                        <exclude>**/*IT.*</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>${maven.failsafe.version}</version>
+                <configuration>
+                    <argLine>${jacoco.agent.it.arg}</argLine>
+                    <skipITs>${skipITs}</skipITs>
+                    <includes>
+                        <include>**/*IT.*</include>
+                    </includes>
+                    <excludes>
+                        <exclude>**/*Spec.*</exclude>
+                    </excludes>
+                    <classesDirectory>${project.build.outputDirectory}</classesDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>run-integration-tests</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>${maven.release.version}</version>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <useReleaseProfile>true</useReleaseProfile>
+                    <releaseProfiles>release</releaseProfiles>
+                    <goals>deploy</goals>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven.javadoc.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <doctitle>Powerflows ${project.name} ${project.version} API</doctitle>
+                            <header>Powerflows ${project.name} ${project.version} API</header>
+                            <windowtitle>Powerflows ${project.name} ${project.version} API</windowtitle>
+                            <isOffline>false</isOffline>
+                            <splitindex>true</splitindex>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
     <profiles>
+        <!-- mvn release:perform -->
         <profile>
             <id>release</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+            </activation>
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
+                        <artifactId>maven-deploy-plugin</artifactId>
+                        <version>${maven.deploy.version}</version>
                         <executions>
                             <execution>
+                                <id>default-deploy</id>
+                                <phase>deploy</phase>
+                                <goals>
+                                    <goal>deploy</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>${nexus.staging.maven.version}</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>${maven.source.version}</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${maven.gpg.version}</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
                                 <phase>verify</phase>
                                 <goals>
                                     <goal>sign</goal>
@@ -195,87 +425,6 @@
                     </plugin>
                 </plugins>
             </build>
-
-            <distributionManagement>
-                <snapshotRepository>
-                    <id>sona</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-                </snapshotRepository>
-                <repository>
-                    <id>sona</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2
-                    </url>
-                </repository>
-            </distributionManagement>
-
         </profile>
     </profiles>
-
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </reporting>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-eclipse-plugin</artifactId>
-                <configuration>
-                    <useProjectReferences>false</useProjectReferences>
-                    <additionalConfig>
-                        <file>
-                            <name>.settings/org.eclipse.jdt.ui.prefs</name>
-                            <location>
-                                ${project.basedir}/eclipse/org.eclipse.jdt.ui.prefs
-                            </location>
-                        </file>
-                        <file>
-                            <name>.settings/org.eclipse.jdt.core.prefs</name>
-                            <location>
-                                ${project.basedir}/eclipse/org.eclipse.jdt.core.prefs
-                            </location>
-                        </file>
-                    </additionalConfig>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>io.spring.javaformat</groupId>
-                <artifactId>spring-javaformat-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-
 </project>
