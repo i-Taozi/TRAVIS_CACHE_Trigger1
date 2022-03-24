@@ -1,7 +1,7 @@
-language: java
-install: true
-script: mvn verify
-
-cache:
-  directories:
-  - $HOME/.m2
+os: linux
+dist: trusty
+sudo: true
+group: stable
+script:
+  - chmod +x ./scripts/travisci.build.sh
+  - ./scripts/travisci.build.sh
