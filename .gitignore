@@ -1,2 +1,7 @@
-target/
-nbproject/
+/.project
+/target
+/.settings
+/.classpath
+.metadata
+.idea
+*.iml
