@@ -1,124 +1,112 @@
-<p align="center">
-  <img width="320" src="https://github.com/godcheese/nimrod/blob/master/nimrod_banner.png?raw=true">
-</p>
-<p align="center">
-  <a href="https://github.com/godcheese/nimrod">
-    <img src="https://img.shields.io/github/last-commit/godcheese/nimrod.svg" alt="GitHub Last Commit">
-  </a>
-  <a href="https://github.com/godcheese/nimrod/releases">
-    <img src="https://img.shields.io/github/release/godcheese/nimrod.svg" alt="GitHub release">
-  </a>
-  <a href="https://travis-ci.org/godcheese/nimrod" rel="nofollow">
-    <img src="https://travis-ci.org/godcheese/nimrod.svg?branch=master" alt="Build Status">
-  </a>
-   <a href="https://sonarcloud.io/dashboard?id=godcheese_nimrod" rel="nofollow">
-      <img src="https://sonarcloud.io/api/project_badges/measure?project=godcheese_nimrod&metric=alert_status" alt="Quality Gate Status">
-    </a>
-<a href="https://www.codacy.com/app/godcheese/nimrod?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=godcheese/nimrod&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/a8b58a98bd3541548e5705c65372734d" alt="Codacy Badge"/></a>
-  <a href="https://github.com/godcheese/nirmod/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
-  </a>
-<!--   <a href="https://gitter.im/repo-name/discuss">
-    <img src="https://badges.gitter.im/Join%20Chat.svg" alt="gitter">
-  </a> -->
-<!--   <a href="https://godcheese.github.io/nimrod/donate">
-    <img src="https://img.shields.io/badge/%24-donate-ff69b4.svg" alt="donate">
-  </a> -->
-</p>
+![](jodd-github-logo.png)
+<br>
 
-## 简介 Introduction
-> nimrod 英[ˈnimrɔd] 美[ˈnɪmˌrɑd] n.	好猎手，猎人;
+[![GitHub release](https://img.shields.io/github/release/oblac/jodd.svg)](https://jodd.org)
+[![Build Status](https://img.shields.io/travis/oblac/jodd.svg)](https://travis-ci.org/oblac/jodd)
+[![codecov](https://codecov.io/gh/oblac/jodd/branch/master/graph/badge.svg)](https://codecov.io/gh/oblac/jodd)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0ce3a0ae3667441fbbd261f6c9e043b0)](https://www.codacy.com/app/igo_rs/jodd)
+[![Stack Overflow](https://img.shields.io/badge/stack%20overflow-jodd-4183C4.svg)](https://stackoverflow.com/questions/tagged/jodd)
+[![BSD License](https://img.shields.io/badge/license-BSD--2--Clause-blue.svg)](https://jodd.org/license.html)
 
-Nimrod - 基于 Spring Boot 构建 的 Java Web 平台企业级单体应用快速开发框架，适合中小型项目的应用和开发。所采用的技术栈包括 Spring Boot、Spring、Spring Web MVC、MyBatis、Thymeleaf 等，遵守[阿里巴巴 Java 开发规约](https://github.com/alibaba/p3c)，帮助养成良好的编码习惯。整体采用 RBAC （ Role-Based Access Control ，基于角色的访问控制），具有严格的权限控制模块，支持系统与模块分离开发。最后希望这个项目能够对你有所帮助。
+## 👋 Hello!
 
-- Nimrod 开发交流群（微信群）：<img width="170" height="250" src="https://github.com/godcheese/nimrod/blob/master/WechatGroup.png?raw=true">
-- Nimrod 开发交流群（QQ 群）：[547252502](https://jq.qq.com/?_wv=1027&k=5yxyg73)
-- [码云 Gitee](https://gitee.com/godcheese/nimrod)
+Welcome to the **Jodd** - a unique, alternative world of Java :) You can find here some micro-frameworks and some handy tools. Nothing more, nothing less.
 
-| 环境 | 版本 |
-| :--- | :--- |
-| [Java](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) | 1.8 |
-| [MySQL](https://dev.mysql.com/downloads/mysql/5.7.html#downloads) | 5.7 |
-| [Maven](http://maven.apache.org/download.cgi) | 3.5 |
-| [Tomcat](https://tomcat.apache.org/download-90.cgi) | 9.0 |
+<h4 align="center">Jodd = tools + ioc + mvc + db + aop + tx + json + html < 1.7 Mb</h4>
 
-| 依赖 | 版本 |
-| :--- | :--- |
-| [Spring Boot](http://mvnrepository.com/artifact/org.springframework.boot/spring-boot) | 2.1.9.RELEASE |
-| [Spring Web MVC](http://mvnrepository.com/artifact/org.springframework/spring-webmvc) | 5.1.6.RELEASE |
-| [Spring Security Web](http://mvnrepository.com/artifact/org.springframework.security/spring-security-web) | 5.1.5.RELEASE |
-| [MyBatis](http://mvnrepository.com/artifact/org.mybatis/mybatis) | 3.5.1 |
-| [Thymeleaf](http://mvnrepository.com/artifact/org.thymeleaf/thymeleaf) | 3.0.11.RELEASE |
-| [Druid](http://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter) | 1.1.16 |
+The official web-site: https://jodd.org
 
-| 测试账号 | 测试账号 |         |
-| :------ | :------ | :------ |
-| Username | Password | Role & Authority |
-| system_admin | 123456 | ROLE_USER,ROLE_ADMIN,ROLE_SYSTEM_ADMIN |
-| admin |123456 | ROLE_USER,ROLE_ADMIN,/API/SYSTEM/INDEX |
-| user |123456 | ROLE_USER |
+## ‼️ THIS IS THE OLD REPO. USE NEW JODD REPOS FOR v6+ ‼️
 
-## 特性 Features
+**Jodd v6** is the maintained version, working on Java 8 and 11. The following components are promoted to version 6:
 
-- 数据字典 ✓
-- 角色管理 ✓
-- 用户管理 ✓
-  - 在线用户 ✗
-- 权限管理 ✓
-  - 视图菜单 ✓
-  - 视图页面 ✓
-  - 视图页面组件 ✓
-  - API ✓
-- 消息中间件（ActiveMQ） ✓
-- 电子邮件管理 ✓
-- 操作日志 ✓
-- 附件管理 ✓
-- 定时任务 ✓
-- 部门管理 ✓
-- ~~工作流（Flowable）~~ ✓
++ [jodd-util](https://github.com/oblac/jodd-util) ⭐
++ [jodd-mail](https://github.com/oblac/jodd-mail) ⭐
++ [jodd-json](https://github.com/oblac/jodd-json) ⭐
++ [jodd-lagarto](https://github.com/oblac/jodd-lagarto) ⭐
++ [jodd-http](https://github.com/oblac/jodd-http) ⭐
++ [jodd-props](https://github.com/oblac/jodd-props) ⭐
++ [jodd-petite](https://github.com/oblac/jodd-petite) ⭐
++ [jodd-proxetta](https://github.com/oblac/jodd-proxetta) ⭐
++ [jodd-db](https://github.com/oblac/jodd-db) ⭐
 
-## 起步 Getting started
+The decision which component is promoted is based on the Maven Central Repo statistics. 
 
-```bash
-# clone the project
-git clone https://github.com/godcheese/nimrod.git && cd nimrod
+Version **v5** contains remaining libraries and frameworks. They are in maintenance mode.
 
-# package
-mvn clean package
+Sorry, I can only do so much.
 
-# develop
-mvn spring-boot:run
-```
+---
 
-## [开发文档 Documentation](https://github.com/godcheese/nimrod/blob/master/docs/getting_started.md)
+## :zap: Jodd
 
-## [更新日志 Changelog](https://github.com/godcheese/nimrod/releases)
-> 参照 [Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
-## [在线演示 Online Demo](http://demo.godcheese.com:8083/nimrod)
+**Jodd** is set of micro-frameworks and developer-friendly tools and utilities.
 
-登录用户名密码加QQ群547252502获取。
+_Use what you like._ **Thank you.** 🙏
 
-#### 截图 Screenshots
+**Cool libraries**:
 
-![1.png](https://github.com/godcheese/nimrod/blob/master/screenshots/1.png)
-![2.png](https://github.com/godcheese/nimrod/blob/master/screenshots/2.png)
-![3.png](https://github.com/godcheese/nimrod/blob/master/screenshots/3.png)
++ `jodd-json` - JSON parser and serializer. ⭐
++ `jodd-lagarto` - HTML parser with `Jerry` and `CSSelly` and `Form` tag. ⭐
++ `jodd-http` - tiny HTTP client. ⭐
++ `jodd-mail` - for easier email sending. ⭐
 
-## 反馈 Feedback
+**Micro-frameworks**:
 
-[Issues](https://github.com/godcheese/nimrod/issues)
++ `jodd-madvoc` - slick MVC framework.
++ `jodd-petite` - pragmatic DI container. ⭐
++ `jodd-proxetta` - dynamic proxies and `Paramo`. ⭐
++ `jodd-db` - thin database layer and object mapper. ⭐
++ `jodd-jtx` - transactions management. ⭐
 
-## 捐赠 Donation
+**Less used tools**:
 
-如果此项目对你有所帮助，不妨请我喝咖啡。
-If you find Nimrod useful, you can buy us a cup of coffee.
++ `jodd-decora` - pages decorator.
++ `jodd-htmlstapler` - static page resources handler.
++ `jodd-vtor` - validation framework.
 
-[Paypal Me](https://www.paypal.me/godcheese)
+**Full Stack Bundle**:
 
-## 浏览器支持 Browsers support
++ `jodd-joy` - super-easy app framework, built with *Jodd* micro-frameworks.
 
-Modern browsers and Internet Explorer 9+.
+**Utilities**:
 
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari |
-| --------- | --------- | --------- | --------- |
-| IE9, IE10, IE11, Edge| last 15 versions| last 15 versions| last 10 versions
++ `jodd-core` - contains many every-day utilities. ⭐
++ `jodd-bean` - our infamous `BeanUtil`, type inspectors and converters. ⭐
++ `jodd-props` - is the super-replacement for Java `Properties`. ⭐
++ `jodd-servlet` - with many servlet utilities, including nice tag library.
+
+Read more in our [official documentation](http://jodd.org).
+
+## :octocat: Building Jodd from source
+
+**Jodd** is built with [Gradle](http://gradle.org/) on JDK8,
+targeting Java 1.8. You don't have to install anything,
+the only prerequisites are [Git](http://help.github.com/set-up-git-redirect)
+and Java JDK.
+
+## :gift_heart: Contribute
+
+Feel free to [contribute](CONTRIBUTING.md)! Follow these steps:
+
+First time only:
+
++ fork the **Jodd** repo (`upstream`) to your GitHub account (`origin`)
++ clone `origin` as your `local` repo
+
+Every other time:
+
++ update both `origin` and `local` repos from `upstream`
++ create new branch for a feature or bug fix
++ commit often :)
++ once when work is done, push local changes to your `origin`
++ send us a pull request (PR)
+
+We will pickup up from there :)
+
+:rocket:
+
+## Code Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="https://github.com/oblac/jodd/graphs/contributors"><img src="https://opencollective.com/jodd/contributors.svg?width=890&button=false" /></a>

@@ -1,10 +1,25 @@
-os: linux
-dist: trusty
-sudo: true
-group: stable
+sudo: required
+language: java
+
+jdk:
+  - openjdk8
+#  - openjdk11
+
+matrix:
+  allow_failures:
+    - jdk: openjdk11
+
+install:
+  - TERM=dumb ./gradlew assemble
+
+#before_script:
+#  - sleep 15
+
 script:
-  - chmod +x ./scripts/travisci.build.sh
-  - ./scripts/travisci.build.sh
-cache:
-  directories:
-  - $HOME/.m2
+  - TERM=dumb ./gradlew testAll codeCoverageReport --stacktrace
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+#after_failure:
+#  - TERM=dumb ./gradlew build testAll --stacktrace
