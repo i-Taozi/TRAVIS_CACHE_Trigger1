@@ -1,5 +1,0 @@
-document
- agent(bob)
- agent(alice)
- actedOnBehalfOf(bob, alice)
-endDocument

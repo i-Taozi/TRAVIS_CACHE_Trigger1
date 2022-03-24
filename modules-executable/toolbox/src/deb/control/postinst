@@ -1,3 +1,0 @@
-#!/bin/sh
-chmod 755 /usr/local/lib/provconvert/bin/provconvert
-chmod 755 /usr/local/bin/provconvert
