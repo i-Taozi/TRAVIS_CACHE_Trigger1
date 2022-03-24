@@ -1,8 +1,0 @@
-
-archivesBaseName = "${project.projectName}-${project.name}"
-
-dependencies {
-    compile project(":quickcheck")
-    testCompile junitCompile
-    testRuntime junitRuntime
-}

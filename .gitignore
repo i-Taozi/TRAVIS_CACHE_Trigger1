@@ -1,17 +1,21 @@
-target
-out
-lib_managed
-*.iws
-.deps
-.idea
-.gradle
-build
+# IntelliJ project files
+.idea/
 *.iml
-.settings
+*.ipr
+*.iws
+out
+gem
+
+# Eclipse project files
 .classpath
 .project
+.settings/
+
+# MacOS files
 .DS_Store
-MANIFEST.MF
-*/bin/**
-*~
-/.nb-gradle/
+
+# Windows files
+Thumbs.db
+
+# Maven files
+target/

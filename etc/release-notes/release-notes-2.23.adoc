@@ -1,6 +1,0 @@
-= Release 2.23
-
-Released: TODO
-
-Changes: TODO
-

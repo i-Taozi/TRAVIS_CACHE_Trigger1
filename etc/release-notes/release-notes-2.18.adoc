@@ -1,5 +1,0 @@
-= Release 2.18
-
-Released: 23 Mar 2009
-
-* See SVN log

@@ -1,5 +1,0 @@
-
-rootProject.name = "functionaljava"
-
-include "core", "demo", "consume", "quickcheck", "props-core", "props-core-scalacheck", "java-core", "performance"
-
