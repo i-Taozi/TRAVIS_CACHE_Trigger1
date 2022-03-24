@@ -1,0 +1,35 @@
+name: GlobalWarming
+author: milkywayz
+main: net.porillo.GlobalWarming
+version: ${project.version}
+api-version: 1.13
+softdepend: [Vault, PlaceholderAPI]
+commands:
+  globalwarming:
+    aliases: gw
+    description: The main command for GlobalWarming
+permissions:
+  globalwarming.booklet:
+    default: true
+  globalwarming.bounty:
+    default: true
+  globalwarming.bounty.create:
+    default: true
+  globalwarming.bounty.join:
+    default: true
+  globalwarming.bounty.cancel:
+    default: true
+  globalwarming.help:
+    default: true
+  globalwarming.score:
+    default: true
+  globalwarming.score.show:
+    default: true
+  globalwarming.score.hide:
+    default: true
+  globalwarming.top:
+    default: true
+  globalwarming.top.polluter:
+    default: true
+  globalwarming.top.planter:
+    default: true

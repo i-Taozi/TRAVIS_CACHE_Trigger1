@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS players (
+  uniqueId INT PRIMARY KEY,
+  uuid VARCHAR(36) UNIQUE NOT NULL,
+  firstSeen BIGINT NOT NULL,
+  carbonScore MEDIUMINT NOT NULL,
+  worldId VARCHAR(36) NOT NULL
+);
