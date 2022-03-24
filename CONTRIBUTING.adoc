@@ -1,6 +1,6 @@
-= Contributing to Kilt
+= Contributing to Apron
 
-Thanks for your interest in contributing to Kilt.
+Thanks for your interest in contributing to Apron.
 
 == How to contribute
 
@@ -23,8 +23,8 @@ welcome.
 
 === Finding bugs
 
-Of course Kilt has bugs. If you find them please file an
-https://github.com/hupfdule/kilt/issues[Issue] so they can be resolved.
+Of course Apron has bugs. If you find them please file an
+https://github.com/hupfdule/apron/issues[Issue] so they can be resolved.
 
 Preparing pull request to solve issues is also highly welcome, of course.
 
@@ -37,13 +37,3 @@ Please structure your commits logically and respect the original
 formatting.  Do not change formattings unrelated to any functional changes,
 even if the existing formatting violates the styleguide.  To do such
 formatting changes, please prepare a separate pull request.
-
-=== Write unit tests
-
-Kilt is currently only partly covered by unit tests. Writing unit test is
-good way to get familiar with the code base and at the same time providing
-some value to it.
-
-Please still to the style of the currently existing unit tests.
-
-It is also advisable to provide unit tests for your own code contributions.
